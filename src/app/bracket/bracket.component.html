@@ -1,0 +1,272 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container-fluid" style="margin: 20px">
+
+    <div class="row" style="margin-bottom: 20px">
+        <p-button (click)="logOut()" label="Logout" *ngIf="authorizationService.isLoggedIn()"></p-button>
+    </div>
+
+    <div class="row" style="margin-bottom: 10px; font-size: xx-large;">
+        <div class="col-md-4" style="text-align: center">
+            NFC
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4" style="text-align: center">
+            AFC
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom: 10px; font-size: large;">
+
+        <div class="col-md-1">
+            Wild Card
+        </div>
+        <div class="col-md-1">
+            Divisional
+        </div>
+        <div class="col-md-1">
+            Championship
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-4" style="text-align: center">
+            Super Bowl
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-1">
+            Championship
+        </div>
+        <div class="col-md-1">
+            Divisional
+        </div>
+        <div class="col-md-1">
+            Wild Card
+        </div>
+
+    </div>
+
+    <div [hidden]="games == null">
+
+        <div class="row">
+            <div class="col-md-1">
+                <div>
+                    <p-radioButton [disabled]="pickDisabled(games.nfcWildcardGame1)" name="nfc_wildcard_1" value="{{games.nfcWildcardGame1.team1}}"
+                                   label="{{games.nfcWildcardGame1.team1}}"
+                                   [(ngModel)]="picks.nfcWildcard1Pick" inputId="nfc_wildcard_1"></p-radioButton>
+                </div>
+                <div>
+                    <p-radioButton [disabled]="pickDisabled(games.nfcWildcardGame1)" name="nfc_wildcard_1" value="{{games.nfcWildcardGame1.team2}}"
+                                   label="{{games.nfcWildcardGame1.team2}}"
+                                   [(ngModel)]="picks.nfcWildcard1Pick" inputId="nfc_wildcard_1"></p-radioButton>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-4" style="text-align: center">
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-1">
+                <div>
+                    <p-radioButton [disabled]="pickDisabled(games.afcWildcardGame1)" name="afc_wildcard_1" value="{{games.afcWildcardGame1.team1}}"
+                                   label="{{games.afcWildcardGame1.team1}}"
+                                   [(ngModel)]="picks.afcWildcard1Pick" inputId="afc_wildcard_1"></p-radioButton>
+                </div>
+                <div>
+                    <p-radioButton [disabled]="pickDisabled(games.afcWildcardGame1)" name="afc_wildcard_1" value="{{games.afcWildcardGame1.team2}}"
+                                   label="{{games.afcWildcardGame1.team2}}"
+                                   [(ngModel)]="picks.afcWildcard1Pick" inputId="afc_wildcard_1"></p-radioButton>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-1">
+                <div>
+                    <p-radioButton [disabled]="pickDisabled(games.nfcDivisionalGame1)" name="nfc_divisional_1"
+                                   value="{{games.nfcDivisionalGame1.team1}}" label="{{games.nfcDivisionalGame1.team1}}"
+                                   [(ngModel)]="picks.nfcDivisional1Pick" inputId="nfc_divisional_1"></p-radioButton>
+                </div>
+                <div>
+                    <p-radioButton [disabled]="pickDisabled(games.nfcDivisionalGame1)" name="nfc_divisional_1"
+                                   value="{{games.nfcDivisionalGame1.team2}}" label="{{games.nfcDivisionalGame1.team2}}"
+                                   [(ngModel)]="picks.nfcDivisional1Pick" inputId="nfc_divisional_1"></p-radioButton>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-4" style="text-align: center">
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-1">
+                <div>
+                    <p-radioButton [disabled]="pickDisabled(games.afcDivisionalGame1)" name="afc_divisional_1"
+                                   value="{{games.afcDivisionalGame1.team1}}" label="{{games.afcDivisionalGame1.team1}}"
+                                   [(ngModel)]="picks.afcDivisional1Pick" inputId="afc_divisional_1"></p-radioButton>
+                </div>
+                <div>
+                    <p-radioButton [disabled]="pickDisabled(games.afcDivisionalGame1)" name="afc_divisional_1"
+                                   value="{{games.afcDivisionalGame1.team2}}" label="{{games.afcDivisionalGame1.team2}}"
+                                   [(ngModel)]="picks.afcDivisional1Pick" inputId="afc_divisional_1"></p-radioButton>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-1">
+                <div>
+                    <p-radioButton [disabled]="pickDisabled(games.nfcChampionshipGame)" name="nfc_championship"
+                                   value="{{games.nfcChampionshipGame.team1}}" label="{{games.nfcChampionshipGame.team1}}"
+                                   [(ngModel)]="picks.nfcChampionshipPick" inputId="nfc_championship"></p-radioButton>
+                </div>
+                <div>
+                    <p-radioButton [disabled]="pickDisabled(games.nfcChampionshipGame)" name="nfc_championship"
+                                   value="{{games.nfcChampionshipGame.team2}}" label="{{games.nfcChampionshipGame.team2}}"
+                                   [(ngModel)]="picks.nfcChampionshipPick" inputId="nfc_championship"></p-radioButton>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-4" style="text-align: center">
+                <div>
+                    <p-radioButton [disabled]="pickDisabled(games.superBowlGame)" name="super_bowl" value="{{games.superBowlGame.team1}}"
+                                   label="{{games.superBowlGame.team1}}"
+                                   [(ngModel)]="picks.superBowlPick" inputId="super_bowl"></p-radioButton>
+                </div>
+                <div>
+                    <p-radioButton [disabled]="pickDisabled(games.superBowlGame)" name="super_bowl" value="{{games.superBowlGame.team2}}"
+                                   label="{{games.superBowlGame.team2}}"
+                                   [(ngModel)]="picks.superBowlPick" inputId="super_bowl"></p-radioButton>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-1">
+                <div>
+                    <p-radioButton [disabled]="pickDisabled(games.afcChampionshipGame)" name="afc_championship"
+                                   value="{{games.afcChampionshipGame.team1}}" label="{{games.afcChampionshipGame.team1}}"
+                                   [(ngModel)]="picks.afcChampionshipPick" inputId="afc_championship"></p-radioButton>
+                </div>
+                <div>
+                    <p-radioButton [disabled]="pickDisabled(games.afcChampionshipGame)" name="afc_championship"
+                                   value="{{games.afcChampionshipGame.team2}}" label="{{games.afcChampionshipGame.team2}}"
+                                   [(ngModel)]="picks.afcChampionshipPick" inputId="afc_championship"></p-radioButton>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-1">
+                <div>
+                    <p-radioButton [disabled]="pickDisabled(games.nfcDivisionalGame2)" name="nfc_divisional_2"
+                                   value="{{games.nfcDivisionalGame2.team1}}" label="{{games.nfcDivisionalGame2.team1}}"
+                                   [(ngModel)]="picks.nfcDivisional2Pick" inputId="nfc_divisional_2"></p-radioButton>
+                </div>
+                <div>
+                    <p-radioButton [disabled]="pickDisabled(games.nfcDivisionalGame2)" name="nfc_divisional_2"
+                                   value="{{games.nfcDivisionalGame2.team2}}" label="{{games.nfcDivisionalGame2.team2}}"
+                                   [(ngModel)]="picks.nfcDivisional2Pick" inputId="nfc_divisional_2"></p-radioButton>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-4" style="text-align: center">
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-1">
+                <div>
+                    <p-radioButton [disabled]="pickDisabled(games.afcDivisionalGame2)" name="afc_divisional_2"
+                                   value="{{games.afcDivisionalGame2.team1}}" label="{{games.afcDivisionalGame2.team1}}"
+                                   [(ngModel)]="picks.afcDivisional2Pick" inputId="afc_divisional_2"></p-radioButton>
+                </div>
+                <div>
+                    <p-radioButton [disabled]="pickDisabled(games.afcDivisionalGame2)" name="afc_divisional_2"
+                                   value="{{games.afcDivisionalGame2.team2}}" label="{{games.afcDivisionalGame2.team2}}"
+                                   [(ngModel)]="picks.afcDivisional2Pick" inputId="afc_divisional_2"></p-radioButton>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1">
+                <div>
+                    <p-radioButton [disabled]="pickDisabled(games.nfcWildcardGame2)" name="nfc_wildcard_2" value="{{games.nfcWildcardGame2.team1}}"
+                                   label="{{games.nfcWildcardGame2.team1}}"
+                                   [(ngModel)]="picks.nfcWildcard2Pick" inputId="nfc_wildcard_2"></p-radioButton>
+                </div>
+                <div>
+                    <p-radioButton [disabled]="pickDisabled(games.nfcWildcardGame2)" name="nfc_wildcard_2" value="{{games.nfcWildcardGame2.team2}}"
+                                   label="{{games.nfcWildcardGame2.team2}}"
+                                   [(ngModel)]="picks.nfcWildcard2Pick" inputId="nfc_wildcard_2"></p-radioButton>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-4" style="text-align: center">
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-1">
+                <div>
+                    <p-radioButton [disabled]="pickDisabled(games.afcWildcardGame2)" name="afc_wildcard_2" value="{{games.afcWildcardGame2.team1}}"
+                                   label="{{games.afcWildcardGame2.team1}}"
+                                   [(ngModel)]="picks.afcWildcard2Pick" inputId="afc_wildcard_2"></p-radioButton>
+                </div>
+                <div>
+                    <p-radioButton [disabled]="pickDisabled(games.afcWildcardGame2)" name="afc_wildcard_2" value="{{games.afcWildcardGame2.team2}}"
+                                   label="{{games.afcWildcardGame2.team2}}"
+                                   [(ngModel)]="picks.afcWildcard2Pick" inputId="afc_wildcard_2"></p-radioButton>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row" style="margin-top: 20px">
+        <p-button label="Save Picks" (onClick)="saveBracket()"></p-button>
+    </div>
+
+</div>
+

@@ -1,0 +1,29 @@
+<h2>LOGIN</h2>
+<p>{{message}}</p>
+<form name="loginForm" #loginForm="ngForm">
+
+    <span class="ui-float-label" style="margin-bottom: 10px">
+        <input type="text" pInputText
+                           style="width: 300px;"
+                           id="userName"
+                           name="userName"
+                           required
+                           [(ngModel)]="userName">
+        <label for="userName">User Name</label>
+    </span>
+    <span class="ui-float-label" style="margin-bottom: 10px">
+        <input type="text" pInputText
+                           style="width: 300px;"
+                           id="password"
+                           name="password"
+                           required
+                           [(ngModel)]="password">
+        <label for="password">Password</label>
+    </span>
+    <p-button  style="margin-right: 20px" [disabled]="!loginForm.form.valid" (click)="login()" label="Login" *ngIf="!authorizationService.isLoggedIn()"></p-button>
+    <p-button (click)="signUp()" label="Sign Up" *ngIf="!authorizationService.isLoggedIn()"></p-button>
+</form>
+
+<p>
+    <p-button (click)="logout()" label="Logout" *ngIf="authorizationService.isLoggedIn()"></p-button>
+</p>
