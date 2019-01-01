@@ -1,0 +1,14 @@
+{
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "footballui-20181229104741-authRole",
+            "UnauthRoleArn": "arn:aws:iam::066684108895:role/footballui-20181229104741-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::066684108895:role/footballui-20181229104741-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "footballui-20181229104741-deployment",
+            "UnauthRoleName": "footballui-20181229104741-unauthRole",
+            "StackName": "footballui-20181229104741",
+            "StackId": "arn:aws:cloudformation:us-east-1:066684108895:stack/footballui-20181229104741/717d6860-0b89-11e9-9228-0e984b426fca"
+        }
+    }
+}
