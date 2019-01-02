@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Auth} from 'aws-amplify';
 import {LocalStorageService} from "../util/local-storage.service";
+import {UserService} from "./user.service";
+import {User} from "./user";
 
 export const JWT_CLAIM_LS_KEY = "authUser";
 
@@ -8,12 +10,11 @@ export const JWT_CLAIM_LS_KEY = "authUser";
     providedIn: 'root',
 })
 export class AuthorizationService {
-    //isLoggedIn = false;
 
     // store the URL so we can redirect after logging in
     redirectUrl: string;
 
-    constructor(private localStorageService: LocalStorageService) {
+    constructor(private localStorageService: LocalStorageService, public userService: UserService) {
     }
 
     login(userName: string, password: string): Promise<any> {
@@ -33,13 +34,43 @@ export class AuthorizationService {
                         .catch(error => console.log(error));*/
                 } else {
                     this.localStorageService.set(JWT_CLAIM_LS_KEY, user);
-
-                    //this.isLoggedIn = true;
+                    this.storeUserInfo(user);
                 }
             },
             error => {
                 alert("Failed to login: " + error);
             });
+    }
+
+    private storeUserInfo(user) {
+        var AWS = require('aws-sdk');
+        AWS.config.update({region: 'us-east-1'});
+        AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+            IdentityPoolId: 'us-east-1:85d6ae4b-e6c1-4fa7-bdc6-61190a47cd7f',
+            Logins: {
+                'cognito-idp.us-east-1.amazonaws.com/us-east-1_7qCS3irDf': user.signInUserSession.idToken.jwtToken
+            }
+        });
+
+        var tempUserService = this.userService;
+
+        new AWS.CognitoIdentity().getId({
+            IdentityPoolId: 'us-east-1:85d6ae4b-e6c1-4fa7-bdc6-61190a47cd7f',
+            Logins: {
+                'cognito-idp.us-east-1.amazonaws.com/us-east-1_7qCS3irDf': user.signInUserSession.idToken.jwtToken
+            }
+        }, function (err, data) {
+            if (err) {
+                alert("Unable to get IdentityId: " + err);
+                console.log(err, err.stack);
+            } else {
+                var newUser = new User();
+                newUser.username = user.username;
+                newUser.identityId = data.IdentityId;
+                tempUserService.addUser(newUser);
+                console.log("Identity Id = " + data.IdentityId);
+            }
+        });
     }
 
     isLoggedIn(): boolean {
@@ -49,6 +80,5 @@ export class AuthorizationService {
 
     logout(): void {
         this.localStorageService.remove(JWT_CLAIM_LS_KEY);
-        //this.isLoggedIn = false;
     }
 }

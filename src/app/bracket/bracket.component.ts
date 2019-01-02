@@ -15,7 +15,8 @@ export class BracketComponent implements OnInit {
     picks: BracketPicks;
     games: PlayoffGames;
 
-    constructor(private authorizationService: AuthorizationService, private router: Router){}
+    constructor(private authorizationService: AuthorizationService, private router: Router) {
+    }
 
     logOut() {
         this.authorizationService.logout();
@@ -25,7 +26,7 @@ export class BracketComponent implements OnInit {
     ngOnInit() {
         this.loadGames();
         this.picks = new BracketPicks();
-        Storage.get("bracketpicks.json", {level: 'private', download: true})
+        Storage.get("bracketpicks.json", {level: 'protected', download: true})
             .then(result => {
                 const text = new TextDecoder('utf-8').decode((result as any).Body);
                 console.log(text);
@@ -52,7 +53,7 @@ export class BracketComponent implements OnInit {
 
     saveBracket() {
 
-        Storage.put('bracketpicks.json', JSON.stringify(this.picks), {level: 'private', contentType: 'text/plain'})
+        Storage.put('bracketpicks.json', JSON.stringify(this.picks), {level: 'protected', contentType: 'text/plain'})
             .then(result => alert("Saved!"))
             .catch(err => alert("Failed to upload: " + err));
 
