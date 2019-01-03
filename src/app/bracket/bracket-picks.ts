@@ -10,4 +10,8 @@ export class BracketPicks {
     nfcChampionshipPick: string;
     afcChampionshipPick: string;
     superBowlPick: string;
+
+    nfcChampionshipBonusPick: string = "";
+    afcChampionshipBonusPick: string = "";
+    superBowlBonusPick: string = "";
 }

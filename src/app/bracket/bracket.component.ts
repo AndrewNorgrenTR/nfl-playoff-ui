@@ -5,6 +5,7 @@ import {PlayoffGames} from "./playoff-games";
 import {AuthorizationService} from "../auth/authorization.service";
 import {Router} from "@angular/router";
 import {PlayoffGame} from "./playoff-game";
+import {SelectItem} from "primeng/api";
 
 @Component({
     selector: 'bracket',
@@ -14,6 +15,9 @@ export class BracketComponent implements OnInit {
 
     picks: BracketPicks;
     games: PlayoffGames;
+    allTeams: SelectItem[];
+    nfcTeams: SelectItem[];
+    afcTeams: SelectItem[];
 
     constructor(private authorizationService: AuthorizationService, private router: Router) {
     }
@@ -24,6 +28,10 @@ export class BracketComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.allTeams = [];
+        this.nfcTeams = [];
+        this.afcTeams = [];
+
         this.loadGames();
         this.picks = new BracketPicks();
         Storage.get("bracketpicks.json", {level: 'protected', download: true})
@@ -44,12 +52,47 @@ export class BracketComponent implements OnInit {
             .then(result => {
                 const text = new TextDecoder('utf-8').decode((result as any).Body);
                 console.log("Games = " + text);
-                this.games = JSON.parse(text);
+                this.games = JSON.parse(text) as PlayoffGames;
+                this.loadAllTeams();
             })
             .catch(err => {
                 alert("Unable to load games: " + err);
             });
     }
+
+    private loadAllTeams(){
+        this.allTeams.push(this.createLabelValue(this.games.afcWildcardGame1.team1));
+        this.allTeams.push(this.createLabelValue(this.games.afcWildcardGame1.team2));
+        this.allTeams.push(this.createLabelValue(this.games.afcWildcardGame2.team1));
+        this.allTeams.push(this.createLabelValue(this.games.afcWildcardGame2.team2));
+        this.allTeams.push(this.createLabelValue(this.games.nfcWildcardGame1.team1));
+        this.allTeams.push(this.createLabelValue(this.games.nfcWildcardGame1.team2));
+        this.allTeams.push(this.createLabelValue(this.games.nfcWildcardGame2.team1));
+        this.allTeams.push(this.createLabelValue(this.games.nfcWildcardGame2.team2));
+
+        this.allTeams.push(this.createLabelValue(this.games.afcDivisionalGame1.team2));
+        this.allTeams.push(this.createLabelValue(this.games.afcDivisionalGame2.team2));
+        this.allTeams.push(this.createLabelValue(this.games.nfcDivisionalGame1.team2));
+        this.allTeams.push(this.createLabelValue(this.games.nfcDivisionalGame2.team2));
+
+        this.nfcTeams.push(this.createLabelValue(this.games.nfcWildcardGame1.team1));
+        this.nfcTeams.push(this.createLabelValue(this.games.nfcWildcardGame1.team2));
+        this.nfcTeams.push(this.createLabelValue(this.games.nfcWildcardGame2.team1));
+        this.nfcTeams.push(this.createLabelValue(this.games.nfcWildcardGame2.team2));
+        this.nfcTeams.push(this.createLabelValue(this.games.nfcDivisionalGame1.team2));
+        this.nfcTeams.push(this.createLabelValue(this.games.nfcDivisionalGame2.team2));
+
+        this.afcTeams.push(this.createLabelValue(this.games.afcWildcardGame1.team1));
+        this.afcTeams.push(this.createLabelValue(this.games.afcWildcardGame1.team2));
+        this.afcTeams.push(this.createLabelValue(this.games.afcWildcardGame2.team1));
+        this.afcTeams.push(this.createLabelValue(this.games.afcWildcardGame2.team2));
+        this.afcTeams.push(this.createLabelValue(this.games.afcDivisionalGame1.team2));
+        this.afcTeams.push(this.createLabelValue(this.games.afcDivisionalGame2.team2));
+    }
+
+    private createLabelValue(text: string): SelectItem{
+        return {label: text, value: text};
+}
 
     saveBracket() {
 

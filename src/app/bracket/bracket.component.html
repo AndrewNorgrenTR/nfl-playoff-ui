@@ -5,6 +5,11 @@
         <p-button (click)="logOut()" label="Logout" *ngIf="authorizationService.isLoggedIn()"></p-button>
     </div>
 
+    <div class="row">
+        <standings></standings>
+    </div>
+
+
     <div class="row" style="margin-bottom: 10px; font-size: xx-large;">
         <div class="col-md-4" style="text-align: center">
             NFC
@@ -45,7 +50,7 @@
 
     </div>
 
-    <div [hidden]="games == null">
+    <div *ngIf="games">
 
         <div class="row">
             <div class="col-md-1">
@@ -262,6 +267,22 @@
             </div>
         </div>
 
+    </div>
+
+    <div class="row" style="margin-top: 20px">
+
+        <div class="col-md-4">
+            <span style="margin-right: 5px">Bonus NFC Champion Pick</span>
+            <p-dropdown [options]="nfcTeams" [(ngModel)]="picks.nfcChampionshipBonusPick" placeholder="Select a Team"></p-dropdown>
+        </div>
+        <div class="col-md-4">
+            <span style="margin-right: 5px">Bonus SuperBowl Pick</span>
+            <p-dropdown [options]="allTeams" [(ngModel)]="picks.superBowlBonusPick" placeholder="Select a Team"></p-dropdown>
+        </div>
+        <div class="col-md-4">
+            <span style="margin-right: 5px">Bonus AFC Champion Pick</span>
+            <p-dropdown [options]="afcTeams" [(ngModel)]="picks.afcChampionshipBonusPick" placeholder="Select a Team"></p-dropdown>
+        </div>
     </div>
 
     <div class="row" style="margin-top: 20px">
