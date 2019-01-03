@@ -286,7 +286,8 @@
     </div>
 
     <div class="row" style="margin-top: 20px">
-        <p-button label="Save Picks" (onClick)="saveBracket()"></p-button>
+        <p-button [disabled]="savingPicks" [ngClass]="{'is-disabled': savingPicks}" label="Save Picks" (onClick)="saveBracket()" [icon]="savingPicks ? 'fa fa-spinner fa-spin' : ''" iconPos="right">
+        </p-button>
     </div>
 
 </div>

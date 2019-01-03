@@ -18,6 +18,7 @@ export class BracketComponent implements OnInit {
     allTeams: SelectItem[];
     nfcTeams: SelectItem[];
     afcTeams: SelectItem[];
+    savingPicks: boolean = false;
 
     constructor(private authorizationService: AuthorizationService, private router: Router) {
     }
@@ -96,9 +97,17 @@ export class BracketComponent implements OnInit {
 
     saveBracket() {
 
+        this.savingPicks = true;
+
         Storage.put('bracketpicks.json', JSON.stringify(this.picks), {level: 'protected', contentType: 'text/plain'})
-            .then(result => alert("Saved!"))
-            .catch(err => alert("Failed to upload: " + err));
+            .then(result => {
+                alert("Saved!");
+                this.savingPicks = false;
+            })
+            .catch(err => {
+                alert("Failed to save picks: " + err);
+                this.savingPicks = false;
+            });
 
     }
 
