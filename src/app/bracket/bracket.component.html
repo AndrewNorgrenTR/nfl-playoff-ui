@@ -273,15 +273,15 @@
 
         <div class="col-md-4">
             <span style="margin-right: 5px">Bonus NFC Champion Pick</span>
-            <p-dropdown [options]="nfcTeams" [(ngModel)]="picks.nfcChampionshipBonusPick" placeholder="Select a Team"></p-dropdown>
+            <p-dropdown [disabled]="pickDisabled(games.afcWildcardGame1)" [options]="nfcTeams" [(ngModel)]="picks.nfcChampionshipBonusPick" placeholder="Select a Team"></p-dropdown>
         </div>
         <div class="col-md-4">
             <span style="margin-right: 5px">Bonus SuperBowl Pick</span>
-            <p-dropdown [options]="allTeams" [(ngModel)]="picks.superBowlBonusPick" placeholder="Select a Team"></p-dropdown>
+            <p-dropdown [disabled]="pickDisabled(games.afcWildcardGame1)" [options]="allTeams" [(ngModel)]="picks.superBowlBonusPick" placeholder="Select a Team"></p-dropdown>
         </div>
         <div class="col-md-4">
             <span style="margin-right: 5px">Bonus AFC Champion Pick</span>
-            <p-dropdown [options]="afcTeams" [(ngModel)]="picks.afcChampionshipBonusPick" placeholder="Select a Team"></p-dropdown>
+            <p-dropdown [disabled]="pickDisabled(games.afcWildcardGame1)" [options]="afcTeams" [(ngModel)]="picks.afcChampionshipBonusPick" placeholder="Select a Team"></p-dropdown>
         </div>
     </div>
 
