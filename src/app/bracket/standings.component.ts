@@ -48,7 +48,47 @@ export class StandingsComponent implements OnInit {
         if (games.afcWildcardGame1.winner == picks.afcWildcard1Pick) {
             score = score + 1;
         }
-        //TODO: finish
+        if (games.afcWildcardGame2.winner == picks.afcWildcard2Pick) {
+            score = score + 1;
+        }
+        if (games.nfcWildcardGame1.winner == picks.nfcWildcard1Pick) {
+            score = score + 1;
+        }
+        if (games.nfcWildcardGame2.winner == picks.nfcWildcard2Pick) {
+            score = score + 1;
+        }
+        if (games.afcDivisionalGame1.winner == picks.afcDivisional1Pick) {
+            score = score + 1;
+        }
+        if (games.afcDivisionalGame2.winner == picks.afcDivisional2Pick) {
+            score = score + 1;
+        }
+        if (games.nfcDivisionalGame1.winner == picks.nfcDivisional1Pick) {
+            score = score + 1;
+        }
+        if (games.nfcDivisionalGame2.winner == picks.nfcDivisional2Pick) {
+            score = score + 1;
+        }
+        if (games.nfcChampionshipGame.winner == picks.nfcChampionshipPick) {
+            score = score + 1;
+        }
+        if (games.afcChampionshipGame.winner == picks.afcChampionshipPick) {
+            score = score + 1;
+        }
+        if (games.superBowlGame.winner == picks.superBowlPick) {
+            score = score + 1;
+        }
+
+        //Bonus picks
+        if (games.afcChampionshipGame.winner == picks.afcChampionshipBonusPick) {
+            score = score + 2;
+        }
+        if (games.nfcChampionshipGame.winner == picks.nfcChampionshipBonusPick) {
+            score = score + 2;
+        }
+        if (games.superBowlGame.winner == picks.superBowlBonusPick) {
+            score = score + 3;
+        }
 
         return score;
     }
