@@ -32,23 +32,23 @@
                 <td>{{standing.username}}</td>
                 <td>{{standing.score}}</td>
 
-                <td>{{showPick(games.afcWildcardGame1) ? standing.picks.superBowlBonusPick : ''}}</td>
-                <td>{{showPick(games.afcWildcardGame1) ? standing.picks.afcChampionshipBonusPick : ''}}</td>
-                <td>{{showPick(games.afcWildcardGame1) ? standing.picks.nfcChampionshipBonusPick : ''}}</td>
+                <td [ngStyle]="{'color': getPickColor(games.superBowlGame, standing.picks.superBowlBonusPick)}">{{showPick(games.afcWildcardGame1) ? standing.picks.superBowlBonusPick : ''}}</td>
+                <td [ngStyle]="{'color': getPickColor(games.afcChampionshipGame, standing.picks.afcChampionshipBonusPick)}">{{showPick(games.afcWildcardGame1) ? standing.picks.afcChampionshipBonusPick : ''}}</td>
+                <td [ngStyle]="{'color': getPickColor(games.nfcChampionshipGame, standing.picks.nfcChampionshipBonusPick)}">{{showPick(games.afcWildcardGame1) ? standing.picks.nfcChampionshipBonusPick : ''}}</td>
 
-                <td>{{showPick(games.afcWildcardGame1) ? standing.picks.afcWildcard1Pick : ''}}</td>
-                <td>{{showPick(games.nfcWildcardGame1) ? standing.picks.nfcWildcard1Pick : ''}}</td>
-                <td>{{showPick(games.afcWildcardGame2) ? standing.picks.afcWildcard2Pick : ''}}</td>
-                <td>{{showPick(games.nfcWildcardGame2) ? standing.picks.nfcWildcard2Pick : ''}}</td>
+                <td [ngStyle]="{'color': getPickColor(games.afcWildcardGame1, standing.picks.afcWildcard1Pick)}">{{showPick(games.afcWildcardGame1) ? standing.picks.afcWildcard1Pick : ''}}</td>
+                <td [ngStyle]="{'color': getPickColor(games.nfcWildcardGame1, standing.picks.nfcWildcard1Pick)}">{{showPick(games.nfcWildcardGame1) ? standing.picks.nfcWildcard1Pick : ''}}</td>
+                <td [ngStyle]="{'color': getPickColor(games.afcWildcardGame2, standing.picks.afcWildcard2Pick)}">{{showPick(games.afcWildcardGame2) ? standing.picks.afcWildcard2Pick : ''}}</td>
+                <td [ngStyle]="{'color': getPickColor(games.nfcWildcardGame2, standing.picks.nfcWildcard2Pick)}">{{showPick(games.nfcWildcardGame2) ? standing.picks.nfcWildcard2Pick : ''}}</td>
 
-                <td>{{showPick(games.afcDivisionalGame1) ? standing.picks.afcDivisional1Pick : ''}}</td>
-                <td>{{showPick(games.nfcDivisionalGame1) ? standing.picks.nfcDivisional1Pick : ''}}</td>
-                <td>{{showPick(games.afcDivisionalGame2) ? standing.picks.afcDivisional2Pick : ''}}</td>
-                <td>{{showPick(games.nfcDivisionalGame2) ? standing.picks.nfcDivisional2Pick : ''}}</td>
+                <td [ngStyle]="{'color': getPickColor(games.afcDivisionalGame1, standing.picks.afcDivisional1Pick)}">{{showPick(games.afcDivisionalGame1) ? standing.picks.afcDivisional1Pick : ''}}</td>
+                <td [ngStyle]="{'color': getPickColor(games.nfcDivisionalGame1, standing.picks.nfcDivisional1Pick)}">{{showPick(games.nfcDivisionalGame1) ? standing.picks.nfcDivisional1Pick : ''}}</td>
+                <td [ngStyle]="{'color': getPickColor(games.afcDivisionalGame2, standing.picks.afcDivisional2Pick)}">{{showPick(games.afcDivisionalGame2) ? standing.picks.afcDivisional2Pick : ''}}</td>
+                <td [ngStyle]="{'color': getPickColor(games.nfcDivisionalGame2, standing.picks.nfcDivisional2Pick)}">{{showPick(games.nfcDivisionalGame2) ? standing.picks.nfcDivisional2Pick : ''}}</td>
 
-                <td>{{showPick(games.afcChampionshipGame) ? standing.picks.afcChampionshipPick : ''}}</td>
-                <td>{{showPick(games.nfcChampionshipGame) ? standing.picks.nfcChampionshipPick : ''}}</td>
-                <td>{{showPick(games.superBowlGame) ? standing.picks.superBowlPick : ''}}</td>
+                <td [ngStyle]="{'color': getPickColor(games.afcChampionshipGame, standing.picks.afcChampionshipPick)}">{{showPick(games.afcChampionshipGame) ? standing.picks.afcChampionshipPick : ''}}</td>
+                <td [ngStyle]="{'color': getPickColor(games.nfcChampionshipGame, standing.picks.nfcChampionshipPick)}">{{showPick(games.nfcChampionshipGame) ? standing.picks.nfcChampionshipPick : ''}}</td>
+                <td [ngStyle]="{'color': getPickColor(games.superBowlGame, standing.picks.superBowlPick)}">{{showPick(games.superBowlGame) ? standing.picks.superBowlPick : ''}}</td>
 
             </tr>
         </ng-template>

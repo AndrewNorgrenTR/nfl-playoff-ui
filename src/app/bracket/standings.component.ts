@@ -103,4 +103,18 @@ export class StandingsComponent implements OnInit {
         return currentDate > gameDate;
     }
 
+    getPickColor(game: PlayoffGame, pick: string): string {
+
+        if(!game.winner){
+            return 'auto';
+        }
+        else if(game.winner == pick){
+            return 'green';
+        }
+        else{
+            return 'red';
+        }
+
+    }
+
 }
