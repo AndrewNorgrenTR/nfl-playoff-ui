@@ -4,6 +4,7 @@ import {Storage} from "aws-amplify";
 import {PlayoffGames} from "./playoff-games";
 import {BracketPicks} from "./bracket-picks";
 import {UserStanding} from "./user-standing";
+import {PlayoffGame} from "./playoff-game";
 
 @Component({
     selector: 'standings',
@@ -12,6 +13,7 @@ import {UserStanding} from "./user-standing";
 export class StandingsComponent implements OnInit {
 
     standings: Array<UserStanding> = [];
+    games: PlayoffGames;
 
     constructor(private userService: UserService) {
 
@@ -23,7 +25,7 @@ export class StandingsComponent implements OnInit {
 
     async loadStandings() {
 
-        var games = await this.loadGames();
+        this.games = await this.loadGames();
 
         this.userService.getAllUsers()
             .then(users => {
@@ -33,7 +35,7 @@ export class StandingsComponent implements OnInit {
                             const text = new TextDecoder('utf-8').decode((result as any).Body);
                             let bracketPicks = JSON.parse(text);
                             console.log(bracketPicks);
-                            this.standings.push(new UserStanding(user.username, this.computeScore(bracketPicks, games)))
+                            this.standings.push(new UserStanding(user.username, this.computeScore(bracketPicks, this.games), bracketPicks))
                         })
                         .catch(err => {
                             console.log("unable to load user brackets: " + err);
@@ -105,6 +107,13 @@ export class StandingsComponent implements OnInit {
                 alert("Unable to load games: " + err);
                 return null;
             });
+    }
+
+    showPick(game: PlayoffGame): boolean {
+        var currentDate = new Date();
+        var gameDate = new Date(game.time);
+
+        return currentDate > gameDate;
     }
 
 }

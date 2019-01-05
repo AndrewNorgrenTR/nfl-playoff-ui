@@ -6,6 +6,24 @@
             <tr>
                 <th>User</th>
                 <th>Score</th>
+                <th>Super Bowl Bonus</th>
+                <th>AFC Champion Bonus</th>
+                <th>NFC Champion Bonus</th>
+
+                <th>AFC WildCard 1</th>
+                <th>NFC WildCard 1</th>
+                <th>AFC WildCard 2</th>
+                <th>NFC WildCard 2</th>
+
+                <th>AFC Division 1</th>
+                <th>NFC Division 1</th>
+                <th>AFC Division 2</th>
+                <th>NFC Division 2</th>
+
+                <th>AFC Champion</th>
+                <th>NFC Champion</th>
+                <th>Super Bowl</th>
+
             </tr>
         </ng-template>
 
@@ -13,6 +31,25 @@
             <tr>
                 <td>{{standing.username}}</td>
                 <td>{{standing.score}}</td>
+
+                <td>{{showPick(games.afcWildcardGame1) ? standing.picks.superBowlBonusPick : ''}}</td>
+                <td>{{showPick(games.afcWildcardGame1) ? standing.picks.afcChampionshipBonusPick : ''}}</td>
+                <td>{{showPick(games.afcWildcardGame1) ? standing.picks.nfcChampionshipBonusPick : ''}}</td>
+
+                <td>{{showPick(games.afcWildcardGame1) ? standing.picks.afcWildcard1Pick : ''}}</td>
+                <td>{{showPick(games.nfcWildcardGame1) ? standing.picks.nfcWildcard1Pick : ''}}</td>
+                <td>{{showPick(games.afcWildcardGame2) ? standing.picks.afcWildcard2Pick : ''}}</td>
+                <td>{{showPick(games.nfcWildcardGame2) ? standing.picks.nfcWildcard2Pick : ''}}</td>
+
+                <td>{{showPick(games.afcDivisionalGame1) ? standing.picks.afcDivisional1Pick : ''}}</td>
+                <td>{{showPick(games.nfcDivisionalGame1) ? standing.picks.nfcDivisional1Pick : ''}}</td>
+                <td>{{showPick(games.afcDivisionalGame2) ? standing.picks.afcDivisional2Pick : ''}}</td>
+                <td>{{showPick(games.nfcDivisionalGame2) ? standing.picks.nfcDivisional2Pick : ''}}</td>
+
+                <td>{{showPick(games.afcChampionshipGame) ? standing.picks.afcChampionshipPick : ''}}</td>
+                <td>{{showPick(games.nfcChampionshipGame) ? standing.picks.nfcChampionshipPick : ''}}</td>
+                <td>{{showPick(games.superBowlGame) ? standing.picks.superBowlPick : ''}}</td>
+
             </tr>
         </ng-template>
 

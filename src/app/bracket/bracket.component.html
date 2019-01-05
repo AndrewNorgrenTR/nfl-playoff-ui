@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="container-fluid" style="margin: 20px">
+<div class="container-fluid" style="padding: 20px">
 
     <div class="row" style="margin-bottom: 20px">
         <p-button (click)="logOut()" label="Logout" *ngIf="authorizationService.isLoggedIn()"></p-button>
@@ -306,20 +306,24 @@
 
         <div class="col-md-4">
             <span style="margin-right: 5px">Bonus NFC Champion Pick</span>
-            <p-dropdown [disabled]="pickDisabled(games.afcWildcardGame1)" [options]="nfcTeams" [(ngModel)]="picks.nfcChampionshipBonusPick" placeholder="Select a Team"></p-dropdown>
+            <p-dropdown [disabled]="pickDisabled(games.afcWildcardGame1)" [options]="nfcTeams" [(ngModel)]="picks.nfcChampionshipBonusPick"
+                        placeholder="Select a Team"></p-dropdown>
         </div>
         <div class="col-md-4">
             <span style="margin-right: 5px">Bonus SuperBowl Pick</span>
-            <p-dropdown [disabled]="pickDisabled(games.afcWildcardGame1)" [options]="allTeams" [(ngModel)]="picks.superBowlBonusPick" placeholder="Select a Team"></p-dropdown>
+            <p-dropdown [disabled]="pickDisabled(games.afcWildcardGame1)" [options]="allTeams" [(ngModel)]="picks.superBowlBonusPick"
+                        placeholder="Select a Team"></p-dropdown>
         </div>
         <div class="col-md-4">
             <span style="margin-right: 5px">Bonus AFC Champion Pick</span>
-            <p-dropdown [disabled]="pickDisabled(games.afcWildcardGame1)" [options]="afcTeams" [(ngModel)]="picks.afcChampionshipBonusPick" placeholder="Select a Team"></p-dropdown>
+            <p-dropdown [disabled]="pickDisabled(games.afcWildcardGame1)" [options]="afcTeams" [(ngModel)]="picks.afcChampionshipBonusPick"
+                        placeholder="Select a Team"></p-dropdown>
         </div>
     </div>
 
     <div class="row" style="margin-top: 20px">
-        <p-button [disabled]="savingPicks" [ngClass]="{'is-disabled': savingPicks}" label="Save Picks" (onClick)="saveBracket()" [icon]="savingPicks ? 'fa fa-spinner fa-spin' : ''" iconPos="right">
+        <p-button [disabled]="savingPicks" [ngClass]="{'is-disabled': savingPicks}" label="Save Picks" (onClick)="saveBracket()"
+                  [icon]="savingPicks ? 'fa fa-spinner fa-spin' : ''" iconPos="right">
         </p-button>
     </div>
 
