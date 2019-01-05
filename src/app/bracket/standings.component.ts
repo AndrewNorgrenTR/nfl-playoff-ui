@@ -5,6 +5,7 @@ import {PlayoffGames} from "./playoff-games";
 import {BracketPicks} from "./bracket-picks";
 import {UserStanding} from "./user-standing";
 import {PlayoffGame} from "./playoff-game";
+import {PlayoffGameService} from "./playoff-game.service";
 
 @Component({
     selector: 'standings',
@@ -15,7 +16,7 @@ export class StandingsComponent implements OnInit {
     standings: Array<UserStanding> = [];
     games: PlayoffGames;
 
-    constructor(private userService: UserService) {
+    constructor(private userService: UserService, private playoffGameService: PlayoffGameService) {
 
     }
 
@@ -25,7 +26,7 @@ export class StandingsComponent implements OnInit {
 
     async loadStandings() {
 
-        this.games = await this.loadGames();
+        this.games = await this.playoffGameService.getPlayoffGames();
 
         this.userService.getAllUsers()
             .then(users => {
@@ -93,20 +94,6 @@ export class StandingsComponent implements OnInit {
         }
 
         return score;
-    }
-
-    loadGames(): Promise<PlayoffGames> {
-
-        return Storage.get('playoffgames.json', {download: true})
-            .then(result => {
-                const text = new TextDecoder('utf-8').decode((result as any).Body);
-                console.log("Games = " + text);
-                return JSON.parse(text) as PlayoffGames;
-            })
-            .catch(err => {
-                alert("Unable to load games: " + err);
-                return null;
-            });
     }
 
     showPick(game: PlayoffGame): boolean {

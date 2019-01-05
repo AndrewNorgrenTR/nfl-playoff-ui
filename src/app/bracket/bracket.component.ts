@@ -6,6 +6,7 @@ import {AuthorizationService} from "../auth/authorization.service";
 import {Router} from "@angular/router";
 import {PlayoffGame} from "./playoff-game";
 import {SelectItem} from "primeng/api";
+import {PlayoffGameService} from "./playoff-game.service";
 
 @Component({
     selector: 'bracket',
@@ -20,7 +21,7 @@ export class BracketComponent implements OnInit {
     afcTeams: SelectItem[];
     savingPicks: boolean = false;
 
-    constructor(private authorizationService: AuthorizationService, private router: Router) {
+    constructor(private authorizationService: AuthorizationService, private router: Router, private playoffGameService: PlayoffGameService) {
     }
 
     logOut() {
@@ -48,20 +49,14 @@ export class BracketComponent implements OnInit {
     }
 
     loadGames() {
-
-        Storage.get('playoffgames.json', {download: true})
-            .then(result => {
-                const text = new TextDecoder('utf-8').decode((result as any).Body);
-                console.log("Games = " + text);
-                this.games = JSON.parse(text) as PlayoffGames;
+        this.playoffGameService.getPlayoffGames()
+            .then(games => {
+                this.games = games;
                 this.loadAllTeams();
-            })
-            .catch(err => {
-                alert("Unable to load games: " + err);
             });
     }
 
-    private loadAllTeams(){
+    private loadAllTeams() {
         this.allTeams.push(this.createLabelValue(this.games.afcWildcardGame1.team1));
         this.allTeams.push(this.createLabelValue(this.games.afcWildcardGame1.team2));
         this.allTeams.push(this.createLabelValue(this.games.afcWildcardGame2.team1));
@@ -91,9 +86,9 @@ export class BracketComponent implements OnInit {
         this.afcTeams.push(this.createLabelValue(this.games.afcDivisionalGame2.team2));
     }
 
-    private createLabelValue(text: string): SelectItem{
+    private createLabelValue(text: string): SelectItem {
         return {label: text, value: text};
-}
+    }
 
     saveBracket() {
 
