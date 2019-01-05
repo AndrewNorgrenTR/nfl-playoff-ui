@@ -64,6 +64,9 @@
                                    label="{{games.nfcWildcardGame1.team2}}"
                                    [(ngModel)]="picks.nfcWildcard1Pick" inputId="nfc_wildcard_1"></p-radioButton>
                 </div>
+                <div style="font-size: small">
+                    {{getGameTimeAsDate(games.nfcWildcardGame1) | date : 'short'}}
+                </div>
             </div>
             <div class="col-md-1">
             </div>
@@ -90,6 +93,9 @@
                                    label="{{games.afcWildcardGame1.team2}}"
                                    [(ngModel)]="picks.afcWildcard1Pick" inputId="afc_wildcard_1"></p-radioButton>
                 </div>
+                <div style="font-size: small">
+                    {{getGameTimeAsDate(games.afcWildcardGame1) | date : 'short'}}
+                </div>
             </div>
         </div>
 
@@ -106,6 +112,9 @@
                     <p-radioButton [disabled]="pickDisabled(games.nfcDivisionalGame1)" name="nfc_divisional_1"
                                    value="{{games.nfcDivisionalGame1.team2}}" label="{{games.nfcDivisionalGame1.team2}}"
                                    [(ngModel)]="picks.nfcDivisional1Pick" inputId="nfc_divisional_1"></p-radioButton>
+                </div>
+                <div style="font-size: small">
+                    {{getGameTimeAsDate(games.nfcDivisionalGame1) | date : 'short'}}
                 </div>
             </div>
             <div class="col-md-1">
@@ -129,6 +138,9 @@
                                    value="{{games.afcDivisionalGame1.team2}}" label="{{games.afcDivisionalGame1.team2}}"
                                    [(ngModel)]="picks.afcDivisional1Pick" inputId="afc_divisional_1"></p-radioButton>
                 </div>
+                <div style="font-size: small">
+                    {{getGameTimeAsDate(games.afcDivisionalGame1) | date : 'short'}}
+                </div>
             </div>
             <div class="col-md-1">
             </div>
@@ -150,6 +162,9 @@
                                    value="{{games.nfcChampionshipGame.team2}}" label="{{games.nfcChampionshipGame.team2}}"
                                    [(ngModel)]="picks.nfcChampionshipPick" inputId="nfc_championship"></p-radioButton>
                 </div>
+                <div style="font-size: small">
+                    {{getGameTimeAsDate(games.nfcChampionshipGame) | date : 'short'}}
+                </div>
             </div>
             <div class="col-md-1">
             </div>
@@ -164,6 +179,9 @@
                                    label="{{games.superBowlGame.team2}}"
                                    [(ngModel)]="picks.superBowlPick" inputId="super_bowl"></p-radioButton>
                 </div>
+                <div style="font-size: small">
+                    {{getGameTimeAsDate(games.superBowlGame) | date : 'short'}}
+                </div>
             </div>
             <div class="col-md-1">
             </div>
@@ -177,6 +195,9 @@
                     <p-radioButton [disabled]="pickDisabled(games.afcChampionshipGame)" name="afc_championship"
                                    value="{{games.afcChampionshipGame.team2}}" label="{{games.afcChampionshipGame.team2}}"
                                    [(ngModel)]="picks.afcChampionshipPick" inputId="afc_championship"></p-radioButton>
+                </div>
+                <div style="font-size: small">
+                    {{getGameTimeAsDate(games.afcChampionshipGame) | date : 'short'}}
                 </div>
             </div>
             <div class="col-md-1">
@@ -198,6 +219,9 @@
                     <p-radioButton [disabled]="pickDisabled(games.nfcDivisionalGame2)" name="nfc_divisional_2"
                                    value="{{games.nfcDivisionalGame2.team2}}" label="{{games.nfcDivisionalGame2.team2}}"
                                    [(ngModel)]="picks.nfcDivisional2Pick" inputId="nfc_divisional_2"></p-radioButton>
+                </div>
+                <div style="font-size: small">
+                    {{getGameTimeAsDate(games.nfcDivisionalGame2) | date : 'short'}}
                 </div>
             </div>
             <div class="col-md-1">
@@ -221,6 +245,9 @@
                                    value="{{games.afcDivisionalGame2.team2}}" label="{{games.afcDivisionalGame2.team2}}"
                                    [(ngModel)]="picks.afcDivisional2Pick" inputId="afc_divisional_2"></p-radioButton>
                 </div>
+                <div style="font-size: small">
+                    {{getGameTimeAsDate(games.afcDivisionalGame2) | date : 'short'}}
+                </div>
             </div>
             <div class="col-md-1">
             </div>
@@ -237,6 +264,9 @@
                     <p-radioButton [disabled]="pickDisabled(games.nfcWildcardGame2)" name="nfc_wildcard_2" value="{{games.nfcWildcardGame2.team2}}"
                                    label="{{games.nfcWildcardGame2.team2}}"
                                    [(ngModel)]="picks.nfcWildcard2Pick" inputId="nfc_wildcard_2"></p-radioButton>
+                </div>
+                <div style="font-size: small">
+                    {{getGameTimeAsDate(games.nfcWildcardGame2) | date : 'short'}}
                 </div>
             </div>
             <div class="col-md-1">
@@ -263,6 +293,9 @@
                     <p-radioButton [disabled]="pickDisabled(games.afcWildcardGame2)" name="afc_wildcard_2" value="{{games.afcWildcardGame2.team2}}"
                                    label="{{games.afcWildcardGame2.team2}}"
                                    [(ngModel)]="picks.afcWildcard2Pick" inputId="afc_wildcard_2"></p-radioButton>
+                </div>
+                <div style="font-size: small">
+                    {{getGameTimeAsDate(games.afcWildcardGame2) | date : 'short'}}
                 </div>
             </div>
         </div>
