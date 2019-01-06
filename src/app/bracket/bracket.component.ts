@@ -21,7 +21,7 @@ export class BracketComponent implements OnInit {
     afcTeams: SelectItem[];
     savingPicks: boolean = false;
 
-    constructor(private authorizationService: AuthorizationService, private router: Router, private playoffGameService: PlayoffGameService) {
+    constructor(public authorizationService: AuthorizationService, private router: Router, private playoffGameService: PlayoffGameService) {
     }
 
     logOut() {

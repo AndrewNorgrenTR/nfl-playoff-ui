@@ -78,6 +78,11 @@ export class AuthorizationService {
         return user != null;
     }
 
+    getUserName(): string {
+        const user = this.localStorageService.get(JWT_CLAIM_LS_KEY);
+        return user != null ? user.username : "";
+    }
+
     logout(): void {
         this.localStorageService.remove(JWT_CLAIM_LS_KEY);
     }
