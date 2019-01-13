@@ -17,6 +17,7 @@ import {LocalStorageService} from "./util/local-storage.service";
 import {StandingsComponent} from "./bracket/standings.component";
 import {TableModule} from "primeng/table";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
         TableModule,
         DropdownModule,
         BrowserAnimationsModule,
-        AmplifyAngularModule
+        AmplifyAngularModule,
+        HttpClientModule
     ],
     providers: [
         AmplifyService,

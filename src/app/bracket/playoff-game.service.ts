@@ -1,23 +1,33 @@
 import {Injectable} from "@angular/core";
 import {PlayoffGames} from "./playoff-games";
 import {Storage} from "aws-amplify";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
     providedIn: 'root'
 })
 export class PlayoffGameService {
 
+    constructor(private http: HttpClient) {
+    }
+
     getPlayoffGames(): Promise<PlayoffGames> {
-        return Storage.get('playoffgames.json', {download: true, expires: 60})
+        return Storage.get('playoffgames.json', {expires: 60})
             .then(result => {
-                const text = new TextDecoder('utf-8').decode((result as any).Body);
-                console.log("Games = " + text);
-                return JSON.parse(text) as PlayoffGames;
+                return this.getFileContent(result as string);
             })
             .catch(err => {
                 alert("Unable to load games: " + err);
                 return null;
             });
+    }
+
+    private getFileContent(url: string){
+
+        return this.http.get(url).toPromise()
+            .then(response => {
+                return response as PlayoffGames;
+            })
     }
 
 }

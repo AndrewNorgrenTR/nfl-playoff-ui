@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {BracketPicks} from "./bracket-picks";
-import {Storage} from 'aws-amplify';
 import {PlayoffGames} from "./playoff-games";
 import {AuthorizationService} from "../auth/authorization.service";
 import {Router} from "@angular/router";
 import {PlayoffGame} from "./playoff-game";
 import {SelectItem} from "primeng/api";
 import {PlayoffGameService} from "./playoff-game.service";
+import {BracketPicksService} from "./bracket-picks.service";
 
 @Component({
     selector: 'bracket',
@@ -21,7 +21,7 @@ export class BracketComponent implements OnInit {
     afcTeams: SelectItem[];
     savingPicks: boolean = false;
 
-    constructor(public authorizationService: AuthorizationService, private router: Router, private playoffGameService: PlayoffGameService) {
+    constructor(public authorizationService: AuthorizationService, private router: Router, private playoffGameService: PlayoffGameService, private bracketPicksService: BracketPicksService) {
     }
 
     logOut() {
@@ -36,16 +36,9 @@ export class BracketComponent implements OnInit {
 
         this.loadGames();
         this.picks = new BracketPicks();
-        Storage.get("bracketpicks.json", {level: 'protected', download: true})
-            .then(result => {
-                const text = new TextDecoder('utf-8').decode((result as any).Body);
-                console.log(text);
-                this.picks = JSON.parse(text);
-            })
-            .catch(err => {
-                //TODO: handle case of nothing saved yet.
-                alert("Failed to load picks: " + err);
-            });
+        this.bracketPicksService.getBracketPicks().then(result => {
+            this.picks = result;
+        });
     }
 
     loadGames() {
@@ -94,7 +87,7 @@ export class BracketComponent implements OnInit {
 
         this.savingPicks = true;
 
-        Storage.put('bracketpicks.json', JSON.stringify(this.picks), {level: 'protected', contentType: 'text/plain'})
+        this.bracketPicksService.savePicks(this.picks)
             .then(result => {
                 alert("Saved!");
                 this.savingPicks = false;
@@ -103,7 +96,6 @@ export class BracketComponent implements OnInit {
                 alert("Failed to save picks: " + err);
                 this.savingPicks = false;
             });
-
     }
 
     pickDisabled(game: PlayoffGame): boolean {

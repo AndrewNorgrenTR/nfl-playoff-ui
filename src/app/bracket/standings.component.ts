@@ -1,11 +1,11 @@
 import {Component, OnInit} from "@angular/core";
 import {UserService} from "../auth/user.service";
-import {Storage} from "aws-amplify";
 import {PlayoffGames} from "./playoff-games";
 import {BracketPicks} from "./bracket-picks";
 import {UserStanding} from "./user-standing";
 import {PlayoffGame} from "./playoff-game";
 import {PlayoffGameService} from "./playoff-game.service";
+import {BracketPicksService} from "./bracket-picks.service";
 
 @Component({
     selector: 'standings',
@@ -16,7 +16,7 @@ export class StandingsComponent implements OnInit {
     standings: Array<UserStanding> = [];
     games: PlayoffGames;
 
-    constructor(private userService: UserService, private playoffGameService: PlayoffGameService) {
+    constructor(private userService: UserService, private playoffGameService: PlayoffGameService, private bracketPicksService: BracketPicksService) {
 
     }
 
@@ -31,15 +31,10 @@ export class StandingsComponent implements OnInit {
         this.userService.getAllUsers()
             .then(users => {
                 for (let user of users) {
-                    Storage.get("bracketpicks.json", {level: 'protected', download: true, identityId: user.identityId})
-                        .then(result => {
-                            const text = new TextDecoder('utf-8').decode((result as any).Body);
-                            let bracketPicks = JSON.parse(text);
-                            console.log(bracketPicks);
-                            this.standings.push(new UserStanding(user.username, this.computeScore(bracketPicks, this.games), bracketPicks))
-                        })
-                        .catch(err => {
-                            console.log("unable to load user brackets: " + err);
+
+                    this.bracketPicksService.getBracketPicksForUser(user)
+                        .then(userPicks => {
+                            this.standings.push(new UserStanding(user.username, this.computeScore(userPicks, this.games), userPicks))
                         });
                 }
             })
