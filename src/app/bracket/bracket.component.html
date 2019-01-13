@@ -31,21 +31,8 @@
 
             <tr>
                 <td>
-                    <div>
-                        <p-radioButton [disabled]="pickDisabled(games.nfcWildcardGame1)" name="nfc_wildcard_1"
-                                       value="{{games.nfcWildcardGame1.team1}}"
-                                       label="{{games.nfcWildcardGame1.team1}}"
-                                       [(ngModel)]="picks.nfcWildcard1Pick" inputId="nfc_wildcard_1"></p-radioButton>
-                    </div>
-                    <div>
-                        <p-radioButton [disabled]="pickDisabled(games.nfcWildcardGame1)" name="nfc_wildcard_1"
-                                       value="{{games.nfcWildcardGame1.team2}}"
-                                       label="{{games.nfcWildcardGame1.team2}}"
-                                       [(ngModel)]="picks.nfcWildcard1Pick" inputId="nfc_wildcard_1"></p-radioButton>
-                    </div>
-                    <div style="font-size: small">
-                        {{getGameTimeAsDate(games.nfcWildcardGame1) | date : 'short'}}
-                    </div>
+                    <bracket-game [game]="games.nfcWildcardGame1" [pick]="picks.nfcWildcard1Pick" [gameField]="'nfcWildcardGame1'"
+                                  (pickChanged)="updatePick($event, 'nfcWildcard1Pick')"></bracket-game>
                 </td>
                 <td></td>
                 <td></td>
@@ -53,58 +40,23 @@
                 <td></td>
                 <td></td>
                 <td>
-                    <div>
-                        <p-radioButton [disabled]="pickDisabled(games.afcWildcardGame1)" name="afc_wildcard_1"
-                                       value="{{games.afcWildcardGame1.team1}}"
-                                       label="{{games.afcWildcardGame1.team1}}"
-                                       [(ngModel)]="picks.afcWildcard1Pick" inputId="afc_wildcard_1"></p-radioButton>
-                    </div>
-                    <div>
-                        <p-radioButton [disabled]="pickDisabled(games.afcWildcardGame1)" name="afc_wildcard_1"
-                                       value="{{games.afcWildcardGame1.team2}}"
-                                       label="{{games.afcWildcardGame1.team2}}"
-                                       [(ngModel)]="picks.afcWildcard1Pick" inputId="afc_wildcard_1"></p-radioButton>
-                    </div>
-                    <div style="font-size: small">
-                        {{getGameTimeAsDate(games.afcWildcardGame1) | date : 'short'}}
-                    </div>
+                    <bracket-game [game]="games.afcWildcardGame1" [pick]="picks.afcWildcard1Pick" [gameField]="'afcWildcardGame1'"
+                                  (pickChanged)="updatePick($event, 'afcWildcard1Pick')"></bracket-game>
                 </td>
             </tr>
 
             <tr>
                 <td></td>
                 <td>
-                    <div>
-                        <p-radioButton [disabled]="pickDisabled(games.nfcDivisionalGame1)" name="nfc_divisional_1"
-                                       value="{{games.nfcDivisionalGame1.team1}}" label="{{games.nfcDivisionalGame1.team1}}"
-                                       [(ngModel)]="picks.nfcDivisional1Pick" inputId="nfc_divisional_1"></p-radioButton>
-                    </div>
-                    <div>
-                        <p-radioButton [disabled]="pickDisabled(games.nfcDivisionalGame1)" name="nfc_divisional_1"
-                                       value="{{games.nfcDivisionalGame1.team2}}" label="{{games.nfcDivisionalGame1.team2}}"
-                                       [(ngModel)]="picks.nfcDivisional1Pick" inputId="nfc_divisional_1"></p-radioButton>
-                    </div>
-                    <div style="font-size: small">
-                        {{getGameTimeAsDate(games.nfcDivisionalGame1) | date : 'short'}}
-                    </div>
+                    <bracket-game [game]="games.nfcDivisionalGame1" [pick]="picks.nfcDivisional1Pick" [gameField]="'nfcDivisionalGame1'"
+                                  (pickChanged)="updatePick($event, 'nfcDivisional1Pick')"></bracket-game>
                 </td>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td>
-                    <div>
-                        <p-radioButton [disabled]="pickDisabled(games.afcDivisionalGame1)" name="afc_divisional_1"
-                                       value="{{games.afcDivisionalGame1.team1}}" label="{{games.afcDivisionalGame1.team1}}"
-                                       [(ngModel)]="picks.afcDivisional1Pick" inputId="afc_divisional_1"></p-radioButton>
-                    </div>
-                    <div>
-                        <p-radioButton [disabled]="pickDisabled(games.afcDivisionalGame1)" name="afc_divisional_1"
-                                       value="{{games.afcDivisionalGame1.team2}}" label="{{games.afcDivisionalGame1.team2}}"
-                                       [(ngModel)]="picks.afcDivisional1Pick" inputId="afc_divisional_1"></p-radioButton>
-                    </div>
-                    <div style="font-size: small">
-                        {{getGameTimeAsDate(games.afcDivisionalGame1) | date : 'short'}}
-                    </div>
+                    <bracket-game [game]="games.afcDivisionalGame1" [pick]="picks.afcDivisional1Pick" [gameField]="'afcDivisionalGame1'"
+                                  (pickChanged)="updatePick($event, 'afcDivisional1Pick')"></bracket-game>
                 </td>
                 <td></td>
             </tr>
@@ -113,49 +65,16 @@
                 <td></td>
                 <td></td>
                 <td>
-                    <div>
-                        <p-radioButton [disabled]="pickDisabled(games.nfcChampionshipGame)" name="nfc_championship"
-                                       value="{{games.nfcChampionshipGame.team1}}" label="{{games.nfcChampionshipGame.team1}}"
-                                       [(ngModel)]="picks.nfcChampionshipPick" inputId="nfc_championship"></p-radioButton>
-                    </div>
-                    <div>
-                        <p-radioButton [disabled]="pickDisabled(games.nfcChampionshipGame)" name="nfc_championship"
-                                       value="{{games.nfcChampionshipGame.team2}}" label="{{games.nfcChampionshipGame.team2}}"
-                                       [(ngModel)]="picks.nfcChampionshipPick" inputId="nfc_championship"></p-radioButton>
-                    </div>
-                    <div style="font-size: small">
-                        {{getGameTimeAsDate(games.nfcChampionshipGame) | date : 'short'}}
-                    </div>
+                    <bracket-game [game]="games.nfcChampionshipGame" [pick]="picks.nfcChampionshipPick" [gameField]="'nfcChampionshipGame'"
+                                  (pickChanged)="updatePick($event, 'nfcChampionshipPick')"></bracket-game>
                 </td>
                 <td>
-                    <div>
-                        <p-radioButton [disabled]="pickDisabled(games.superBowlGame)" name="super_bowl" value="{{games.superBowlGame.team1}}"
-                                       label="{{games.superBowlGame.team1}}"
-                                       [(ngModel)]="picks.superBowlPick" inputId="super_bowl"></p-radioButton>
-                    </div>
-                    <div>
-                        <p-radioButton [disabled]="pickDisabled(games.superBowlGame)" name="super_bowl" value="{{games.superBowlGame.team2}}"
-                                       label="{{games.superBowlGame.team2}}"
-                                       [(ngModel)]="picks.superBowlPick" inputId="super_bowl"></p-radioButton>
-                    </div>
-                    <div style="font-size: small">
-                        {{getGameTimeAsDate(games.superBowlGame) | date : 'short'}}
-                    </div>
+                    <bracket-game [game]="games.superBowlGame" [pick]="picks.superBowlPick" [gameField]="'superBowlGame'"
+                                  (pickChanged)="updatePick($event, 'superBowlPick')"></bracket-game>
                 </td>
                 <td>
-                    <div>
-                        <p-radioButton [disabled]="pickDisabled(games.afcChampionshipGame)" name="afc_championship"
-                                       value="{{games.afcChampionshipGame.team1}}" label="{{games.afcChampionshipGame.team1}}"
-                                       [(ngModel)]="picks.afcChampionshipPick" inputId="afc_championship"></p-radioButton>
-                    </div>
-                    <div>
-                        <p-radioButton [disabled]="pickDisabled(games.afcChampionshipGame)" name="afc_championship"
-                                       value="{{games.afcChampionshipGame.team2}}" label="{{games.afcChampionshipGame.team2}}"
-                                       [(ngModel)]="picks.afcChampionshipPick" inputId="afc_championship"></p-radioButton>
-                    </div>
-                    <div style="font-size: small">
-                        {{getGameTimeAsDate(games.afcChampionshipGame) | date : 'short'}}
-                    </div>
+                    <bracket-game [game]="games.afcChampionshipGame" [pick]="picks.afcChampionshipPick" [gameField]="'afcChampionshipGame'"
+                                  (pickChanged)="updatePick($event, 'afcChampionshipPick')"></bracket-game>
                 </td>
                 <td></td>
                 <td></td>
@@ -164,58 +83,23 @@
             <tr>
                 <td></td>
                 <td>
-                    <div>
-                        <p-radioButton [disabled]="pickDisabled(games.nfcDivisionalGame2)" name="nfc_divisional_2"
-                                       value="{{games.nfcDivisionalGame2.team1}}" label="{{games.nfcDivisionalGame2.team1}}"
-                                       [(ngModel)]="picks.nfcDivisional2Pick" inputId="nfc_divisional_2"></p-radioButton>
-                    </div>
-                    <div>
-                        <p-radioButton [disabled]="pickDisabled(games.nfcDivisionalGame2)" name="nfc_divisional_2"
-                                       value="{{games.nfcDivisionalGame2.team2}}" label="{{games.nfcDivisionalGame2.team2}}"
-                                       [(ngModel)]="picks.nfcDivisional2Pick" inputId="nfc_divisional_2"></p-radioButton>
-                    </div>
-                    <div style="font-size: small">
-                        {{getGameTimeAsDate(games.nfcDivisionalGame2) | date : 'short'}}
-                    </div>
+                    <bracket-game [game]="games.nfcDivisionalGame2" [pick]="picks.nfcDivisional2Pick" [gameField]="'nfcDivisionalGame2'"
+                                  (pickChanged)="updatePick($event, 'nfcDivisional2Pick')"></bracket-game>
                 </td>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td>
-                    <div>
-                        <p-radioButton [disabled]="pickDisabled(games.afcDivisionalGame2)" name="afc_divisional_2"
-                                       value="{{games.afcDivisionalGame2.team1}}" label="{{games.afcDivisionalGame2.team1}}"
-                                       [(ngModel)]="picks.afcDivisional2Pick" inputId="afc_divisional_2"></p-radioButton>
-                    </div>
-                    <div>
-                        <p-radioButton [disabled]="pickDisabled(games.afcDivisionalGame2)" name="afc_divisional_2"
-                                       value="{{games.afcDivisionalGame2.team2}}" label="{{games.afcDivisionalGame2.team2}}"
-                                       [(ngModel)]="picks.afcDivisional2Pick" inputId="afc_divisional_2"></p-radioButton>
-                    </div>
-                    <div style="font-size: small">
-                        {{getGameTimeAsDate(games.afcDivisionalGame2) | date : 'short'}}
-                    </div>
+                    <bracket-game [game]="games.afcDivisionalGame2" [pick]="picks.afcDivisional2Pick" [gameField]="'afcDivisionalGame2'"
+                                  (pickChanged)="updatePick($event, 'afcDivisional2Pick')"></bracket-game>
                 </td>
                 <td></td>
             </tr>
 
             <tr>
                 <td>
-                    <div>
-                        <p-radioButton [disabled]="pickDisabled(games.nfcWildcardGame2)" name="nfc_wildcard_2"
-                                       value="{{games.nfcWildcardGame2.team1}}"
-                                       label="{{games.nfcWildcardGame2.team1}}"
-                                       [(ngModel)]="picks.nfcWildcard2Pick" inputId="nfc_wildcard_2"></p-radioButton>
-                    </div>
-                    <div>
-                        <p-radioButton [disabled]="pickDisabled(games.nfcWildcardGame2)" name="nfc_wildcard_2"
-                                       value="{{games.nfcWildcardGame2.team2}}"
-                                       label="{{games.nfcWildcardGame2.team2}}"
-                                       [(ngModel)]="picks.nfcWildcard2Pick" inputId="nfc_wildcard_2"></p-radioButton>
-                    </div>
-                    <div style="font-size: small">
-                        {{getGameTimeAsDate(games.nfcWildcardGame2) | date : 'short'}}
-                    </div>
+                    <bracket-game [game]="games.nfcWildcardGame2" [pick]="picks.nfcWildcard2Pick" [gameField]="'nfcWildcardGame2'"
+                                  (pickChanged)="updatePick($event, 'nfcWildcard2Pick')"></bracket-game>
                 </td>
                 <td></td>
                 <td></td>
@@ -223,21 +107,8 @@
                 <td></td>
                 <td></td>
                 <td>
-                    <div>
-                        <p-radioButton [disabled]="pickDisabled(games.afcWildcardGame2)" name="afc_wildcard_2"
-                                       value="{{games.afcWildcardGame2.team1}}"
-                                       label="{{games.afcWildcardGame2.team1}}"
-                                       [(ngModel)]="picks.afcWildcard2Pick" inputId="afc_wildcard_2"></p-radioButton>
-                    </div>
-                    <div>
-                        <p-radioButton [disabled]="pickDisabled(games.afcWildcardGame2)" name="afc_wildcard_2"
-                                       value="{{games.afcWildcardGame2.team2}}"
-                                       label="{{games.afcWildcardGame2.team2}}"
-                                       [(ngModel)]="picks.afcWildcard2Pick" inputId="afc_wildcard_2"></p-radioButton>
-                    </div>
-                    <div style="font-size: small">
-                        {{getGameTimeAsDate(games.afcWildcardGame2) | date : 'short'}}
-                    </div>
+                    <bracket-game [game]="games.afcWildcardGame2" [pick]="picks.afcWildcard2Pick" [gameField]="'afcWildcardGame2'"
+                                  (pickChanged)="updatePick($event, 'afcWildcard2Pick')"></bracket-game>
                 </td>
             </tr>
 

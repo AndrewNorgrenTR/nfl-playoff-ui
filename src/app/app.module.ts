@@ -18,6 +18,7 @@ import {StandingsComponent} from "./bracket/standings.component";
 import {TableModule} from "primeng/table";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpClientModule} from "@angular/common/http";
+import {BracketGameComponent} from "./bracket/bracket-game.component";
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {HttpClientModule} from "@angular/common/http";
         BracketComponent,
         LoginComponent,
         NewUserComponent,
-        StandingsComponent
+        StandingsComponent,
+        BracketGameComponent
     ],
     imports: [
         AppRoutingModule,
