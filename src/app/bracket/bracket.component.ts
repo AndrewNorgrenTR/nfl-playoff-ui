@@ -105,10 +105,6 @@ export class BracketComponent implements OnInit {
         return currentDate > gameDate;
     }
 
-    getGameTimeAsDate(game: PlayoffGame): Date {
-        return new Date(game.time);
-    }
-
     updatePick(event, pickField){
         this.picks[pickField] = event;
     }
