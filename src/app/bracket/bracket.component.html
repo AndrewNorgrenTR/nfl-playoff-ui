@@ -86,9 +86,21 @@
                     <bracket-game [game]="games.nfcDivisionalGame2" [pick]="picks.nfcDivisional2Pick" [gameField]="'nfcDivisionalGame2'"
                                   (pickChanged)="updatePick($event, 'nfcDivisional2Pick')"></bracket-game>
                 </td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>
+                    <div>Bonus NFC Champion Pick</div>
+                    <p-dropdown [disabled]="pickDisabled(games.afcWildcardGame1)" [options]="nfcTeams" [(ngModel)]="picks.nfcChampionshipBonusPick"
+                                placeholder="Select a Team"></p-dropdown>
+                </td>
+                <td style="min-width: 250px">
+                    <div>Bonus SuperBowl Pick</div>
+                    <p-dropdown [disabled]="pickDisabled(games.afcWildcardGame1)" [options]="allTeams" [(ngModel)]="picks.superBowlBonusPick"
+                                placeholder="Select a Team"></p-dropdown>
+                </td>
+                <td>
+                    <div>Bonus AFC Champion Pick</div>
+                    <p-dropdown [disabled]="pickDisabled(games.afcWildcardGame1)" [options]="afcTeams" [(ngModel)]="picks.afcChampionshipBonusPick"
+                                placeholder="Select a Team"></p-dropdown>
+                </td>
                 <td>
                     <bracket-game [game]="games.afcDivisionalGame2" [pick]="picks.afcDivisional2Pick" [gameField]="'afcDivisionalGame2'"
                                   (pickChanged)="updatePick($event, 'afcDivisional2Pick')"></bracket-game>
@@ -103,7 +115,11 @@
                 </td>
                 <td></td>
                 <td></td>
-                <td></td>
+                <td>
+                    <p-button [disabled]="savingPicks" [ngClass]="{'is-disabled': savingPicks}" label="Save Picks" (onClick)="saveBracket()"
+                              [icon]="savingPicks ? 'fa fa-spinner fa-spin' : ''" iconPos="right">
+                    </p-button>
+                </td>
                 <td></td>
                 <td></td>
                 <td>
@@ -114,31 +130,6 @@
 
         </table>
 
-    </div>
-
-    <div class="row" style="margin-top: 40px; text-align: center">
-
-        <div class="col-md-4">
-            <span style="margin-right: 5px">Bonus NFC Champion Pick</span>
-            <p-dropdown [disabled]="pickDisabled(games.afcWildcardGame1)" [options]="nfcTeams" [(ngModel)]="picks.nfcChampionshipBonusPick"
-                        placeholder="Select a Team"></p-dropdown>
-        </div>
-        <div class="col-md-4">
-            <span style="margin-right: 5px">Bonus SuperBowl Pick</span>
-            <p-dropdown [disabled]="pickDisabled(games.afcWildcardGame1)" [options]="allTeams" [(ngModel)]="picks.superBowlBonusPick"
-                        placeholder="Select a Team"></p-dropdown>
-        </div>
-        <div class="col-md-4">
-            <span style="margin-right: 5px">Bonus AFC Champion Pick</span>
-            <p-dropdown [disabled]="pickDisabled(games.afcWildcardGame1)" [options]="afcTeams" [(ngModel)]="picks.afcChampionshipBonusPick"
-                        placeholder="Select a Team"></p-dropdown>
-        </div>
-    </div>
-
-    <div class="row" style="margin-top: 20px">
-        <p-button [disabled]="savingPicks" [ngClass]="{'is-disabled': savingPicks}" label="Save Picks" (onClick)="saveBracket()"
-                  [icon]="savingPicks ? 'fa fa-spinner fa-spin' : ''" iconPos="right">
-        </p-button>
     </div>
 
 </div>
