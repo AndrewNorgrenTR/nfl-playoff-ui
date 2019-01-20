@@ -1,18 +1,18 @@
 <div class="bracket-game">
     <div>
-        <p-radioButton [disabled]="pickDisabled(game)" name="{{gameField}}"
-                       value="{{game.team1}}"
-                       label="{{game.team1}}"
-                       (onClick)="changePick(game.team1)"
-                       [(ngModel)]="pick" inputId="{{gameField}}"></p-radioButton>
+        <p-radioButton [disabled]="pickDisabled(game)" name="{{game.team1}}_{{game.team2}}"
+                       value="{{getHomeTeam()}}"
+                       label="{{getHomeTeam()}}"
+                       (onClick)="changePick(getHomeTeam())"
+                       [(ngModel)]="pick" inputId="{{game.team1}}_{{game.team2}}"></p-radioButton>
         <span [hidden]="isSuperBowlGame()" style="margin-left: 5px">@</span>
     </div>
     <div>
-        <p-radioButton [disabled]="pickDisabled(game)" name="{{gameField}}"
-                       value="{{game.team2}}"
-                       label="{{game.team2}}"
-                       (onClick)="changePick(game.team2)"
-                       [(ngModel)]="pick" inputId="{{gameField}}"></p-radioButton>
+        <p-radioButton [disabled]="pickDisabled(game)" name="{{game.team1}}_{{game.team2}}"
+                       value="{{getAwayTeam()}}"
+                       label="{{getAwayTeam()}}"
+                       (onClick)="changePick(getAwayTeam())"
+                       [(ngModel)]="pick" inputId="{{game.team1}}_{{game.team2}}"></p-radioButton>
     </div>
     <div style="font-size: small">
         {{getGameTimeAsDate(game) | date : 'short'}}

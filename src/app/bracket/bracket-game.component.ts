@@ -10,6 +10,7 @@ export class BracketGameComponent implements OnInit {
 
     @Input() game: PlayoffGame;
     @Input() pick: string;
+    //TODO: remove gameField after testing more
     @Input() gameField: string;
     @Output() pickChanged = new EventEmitter();
 
@@ -21,7 +22,7 @@ export class BracketGameComponent implements OnInit {
         var currentDate = new Date();
         var gameDate = new Date(game.time);
 
-        return currentDate > gameDate;
+        return (currentDate > gameDate) || (!this.game.team1 && !this.game.team2);
     }
 
     changePick(pickChange) {
@@ -34,6 +35,14 @@ export class BracketGameComponent implements OnInit {
 
     isSuperBowlGame(): boolean {
         return this.gameField.toLocaleLowerCase().includes("superbowl");
+    }
+
+    getHomeTeam(): string {
+        return this.game.team1 ? this.game.team1 : 'TBD';
+    }
+
+    getAwayTeam(): string {
+        return this.game.team2 ? this.game.team2 : 'TBD';
     }
 
 }
