@@ -37,11 +37,11 @@ export class BracketGameComponent implements OnInit {
         return this.gameField.toLocaleLowerCase().includes("superbowl");
     }
 
-    getHomeTeam(): string {
+    getAwayTeam(): string {
         return this.game.team1 ? this.game.team1 : 'TBD';
     }
 
-    getAwayTeam(): string {
+    getHomeTeam(): string {
         return this.game.team2 ? this.game.team2 : 'TBD';
     }
 
