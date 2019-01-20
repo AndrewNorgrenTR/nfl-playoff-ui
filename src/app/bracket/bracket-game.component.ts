@@ -24,12 +24,16 @@ export class BracketGameComponent implements OnInit {
         return currentDate > gameDate;
     }
 
-    changePick(pickChange){
+    changePick(pickChange) {
         this.pickChanged.emit(pickChange);
     }
 
     getGameTimeAsDate(game: PlayoffGame): Date {
         return new Date(game.time);
+    }
+
+    isSuperBowlGame(): boolean {
+        return this.gameField.toLocaleLowerCase().includes("superbowl");
     }
 
 }

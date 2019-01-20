@@ -5,6 +5,7 @@
                        label="{{game.team1}}"
                        (onClick)="changePick(game.team1)"
                        [(ngModel)]="pick" inputId="{{gameField}}"></p-radioButton>
+        <span [hidden]="isSuperBowlGame()" style="margin-left: 5px">@</span>
     </div>
     <div>
         <p-radioButton [disabled]="pickDisabled(game)" name="{{gameField}}"
