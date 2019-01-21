@@ -12,5 +12,5 @@
 .bracket-game {
     margin: 10px;
     border: solid 1px;
-
+    min-width: 130px;
 }

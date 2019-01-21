@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {BracketPicks} from "./bracket-picks";
 import {PlayoffGames} from "./playoff-games";
 import {AuthorizationService} from "../auth/authorization.service";
@@ -105,7 +105,14 @@ export class BracketComponent implements OnInit {
         return currentDate > gameDate;
     }
 
-    updatePick(event, pickField){
+    updatePick(event, pickField) {
         this.picks[pickField] = event;
+    }
+
+    getTableDataHeightInHalf(elementId: string): string {
+        var myElement = document.getElementById(elementId) as HTMLElement;
+        var height = myElement.clientHeight;
+        height = Math.floor(height / 2);
+        return height + 'px';
     }
 }
