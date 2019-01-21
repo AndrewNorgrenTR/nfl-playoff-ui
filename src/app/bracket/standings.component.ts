@@ -34,7 +34,9 @@ export class StandingsComponent implements OnInit {
 
                     this.bracketPicksService.getBracketPicksForUser(user)
                         .then(userPicks => {
-                            this.standings.push(new UserStanding(user.username, this.computeScore(userPicks, this.games), userPicks))
+                            this.standings.push(new UserStanding(user.username, this.computeScore(userPicks, this.games), userPicks));
+                            this.standings.sort(function(a, b){return b.score-a.score});
+
                         });
                 }
             })
@@ -109,5 +111,4 @@ export class StandingsComponent implements OnInit {
             return 'standings-incorrect';
         }
     }
-
 }
