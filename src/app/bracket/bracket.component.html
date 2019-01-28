@@ -1,4 +1,4 @@
-<div style="padding: 20px;">
+<div class="container-fluid" style="padding: 20px;">
 
     <div class="row" style="margin-bottom: 20px">
         <span style="margin-right: 10px">Hello {{authorizationService.getUserName()}}</span>
@@ -9,9 +9,9 @@
         <standings></standings>
     </div>
 
-    <div class="row bracket-background" *ngIf="games">
+    <div class="row" *ngIf="games">
 
-        <table style="width: 100%; text-align: center" cellpadding="0" cellspacing="0">
+        <table class="bracket-background" style="width: 100%; text-align: center" cellpadding="0" cellspacing="0">
 
             <tr style="margin-bottom: 10px; font-size: 50px">
                 <th colspan="4">NFC</th>
