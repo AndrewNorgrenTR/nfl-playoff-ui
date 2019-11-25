@@ -46,18 +46,18 @@ export class AuthorizationService {
         var AWS = require('aws-sdk');
         AWS.config.update({region: 'us-east-1'});
         AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-            IdentityPoolId: 'us-east-1:85d6ae4b-e6c1-4fa7-bdc6-61190a47cd7f',
+            IdentityPoolId: 'us-east-1:36b7768b-c628-4172-91ff-66b290aed0f3',
             Logins: {
-                'cognito-idp.us-east-1.amazonaws.com/us-east-1_7qCS3irDf': user.signInUserSession.idToken.jwtToken
+                'cognito-idp.us-east-1.amazonaws.com/us-east-1_7MujoN3uX': user.signInUserSession.idToken.jwtToken
             }
         });
 
         var tempUserService = this.userService;
 
         new AWS.CognitoIdentity().getId({
-            IdentityPoolId: 'us-east-1:85d6ae4b-e6c1-4fa7-bdc6-61190a47cd7f',
+            IdentityPoolId: 'us-east-1:36b7768b-c628-4172-91ff-66b290aed0f3',
             Logins: {
-                'cognito-idp.us-east-1.amazonaws.com/us-east-1_7qCS3irDf': user.signInUserSession.idToken.jwtToken
+                'cognito-idp.us-east-1.amazonaws.com/us-east-1_7MujoN3uX': user.signInUserSession.idToken.jwtToken
             }
         }, function (err, data) {
             if (err) {
