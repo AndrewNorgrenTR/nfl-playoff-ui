@@ -19,7 +19,7 @@ export class BracketPicksService {
             .catch(err => {
                 //TODO: handle case of nothing saved yet.
                 alert("Failed to load picks: " + err);
-                return null;
+                return new BracketPicks();
             });
     }
 
@@ -32,7 +32,7 @@ export class BracketPicksService {
                 //TODO: handle case of nothing saved yet.
                 console.log("Failed to load picks: " + err);
                 //alert("Failed to load picks: " + err);
-                return null;
+                return new BracketPicks();
             });
     }
 

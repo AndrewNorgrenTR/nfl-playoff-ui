@@ -45,48 +45,48 @@ export class StandingsComponent implements OnInit {
     private computeScore(picks: BracketPicks, games: PlayoffGames): number {
         var score = 0;
 
-        if (games.afcWildcardGame1.winner == picks.afcWildcard1Pick) {
+        if (picks.afcWildcard1Pick && games.afcWildcardGame1.winner == picks.afcWildcard1Pick) {
             score = score + 1;
         }
-        if (games.afcWildcardGame2.winner == picks.afcWildcard2Pick) {
+        if (picks.afcWildcard2Pick && games.afcWildcardGame2.winner == picks.afcWildcard2Pick) {
             score = score + 1;
         }
-        if (games.nfcWildcardGame1.winner == picks.nfcWildcard1Pick) {
+        if (picks.nfcWildcard1Pick && games.nfcWildcardGame1.winner == picks.nfcWildcard1Pick) {
             score = score + 1;
         }
-        if (games.nfcWildcardGame2.winner == picks.nfcWildcard2Pick) {
+        if (picks.nfcWildcard2Pick && games.nfcWildcardGame2.winner == picks.nfcWildcard2Pick) {
             score = score + 1;
         }
-        if (games.afcDivisionalGame1.winner == picks.afcDivisional1Pick) {
+        if (picks.afcDivisional1Pick && games.afcDivisionalGame1.winner == picks.afcDivisional1Pick) {
             score = score + 1;
         }
-        if (games.afcDivisionalGame2.winner == picks.afcDivisional2Pick) {
+        if (picks.afcDivisional2Pick && games.afcDivisionalGame2.winner == picks.afcDivisional2Pick) {
             score = score + 1;
         }
-        if (games.nfcDivisionalGame1.winner == picks.nfcDivisional1Pick) {
+        if (picks.nfcDivisional1Pick && games.nfcDivisionalGame1.winner == picks.nfcDivisional1Pick) {
             score = score + 1;
         }
-        if (games.nfcDivisionalGame2.winner == picks.nfcDivisional2Pick) {
+        if (picks.nfcDivisional2Pick && games.nfcDivisionalGame2.winner == picks.nfcDivisional2Pick) {
             score = score + 1;
         }
-        if (games.nfcChampionshipGame.winner == picks.nfcChampionshipPick) {
+        if (picks.nfcChampionshipPick && games.nfcChampionshipGame.winner == picks.nfcChampionshipPick) {
             score = score + 1;
         }
-        if (games.afcChampionshipGame.winner == picks.afcChampionshipPick) {
+        if (picks.afcChampionshipPick && games.afcChampionshipGame.winner == picks.afcChampionshipPick) {
             score = score + 1;
         }
-        if (games.superBowlGame.winner == picks.superBowlPick) {
+        if (picks.superBowlPick && games.superBowlGame.winner == picks.superBowlPick) {
             score = score + 1;
         }
 
         //Bonus picks
-        if (games.afcChampionshipGame.winner == picks.afcChampionshipBonusPick) {
+        if (picks.afcChampionshipBonusPick && games.afcChampionshipGame.winner == picks.afcChampionshipBonusPick) {
             score = score + 2;
         }
-        if (games.nfcChampionshipGame.winner == picks.nfcChampionshipBonusPick) {
+        if (picks.nfcChampionshipBonusPick && games.nfcChampionshipGame.winner == picks.nfcChampionshipBonusPick) {
             score = score + 2;
         }
-        if (games.superBowlGame.winner == picks.superBowlBonusPick) {
+        if (picks.superBowlBonusPick && games.superBowlGame.winner == picks.superBowlBonusPick) {
             score = score + 3;
         }
 
