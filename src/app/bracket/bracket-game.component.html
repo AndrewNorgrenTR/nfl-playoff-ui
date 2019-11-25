@@ -14,7 +14,7 @@
                        (onClick)="changePick(getHomeTeam())"
                        [(ngModel)]="pick" inputId="{{game.team1}}_{{game.team2}}"></p-radioButton>
     </div>
-    <div style="font-size: small">
+    <div style="font-size: small" *ngIf="game.time">
         {{getGameTimeAsDate(game) | date : 'short'}}
     </div>
 </div>
