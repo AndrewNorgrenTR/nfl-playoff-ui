@@ -1,0 +1,19 @@
+<div class="container-fluid" style="padding: 20px;">
+
+    <edit-playoff-game [game]="games.nfcWildcardGame1" [gameTitle]="'NFC Wildcard Game 1'"></edit-playoff-game>
+    <edit-playoff-game [game]="games.nfcWildcardGame2" [gameTitle]="'NFC Wildcard Game 2'"></edit-playoff-game>
+    <edit-playoff-game [game]="games.afcWildcardGame1" [gameTitle]="'AFC Wildcard Game 1'"></edit-playoff-game>
+    <edit-playoff-game [game]="games.afcWildcardGame2" [gameTitle]="'AFC Wildcard Game 2'"></edit-playoff-game>
+    <edit-playoff-game [game]="games.nfcDivisionalGame1" [gameTitle]="'NFC Divisional Game 1'"></edit-playoff-game>
+    <edit-playoff-game [game]="games.nfcDivisionalGame2" [gameTitle]="'NFC Divisional Game 2'"></edit-playoff-game>
+    <edit-playoff-game [game]="games.afcDivisionalGame1" [gameTitle]="'AFC Divisional Game 1'"></edit-playoff-game>
+    <edit-playoff-game [game]="games.afcDivisionalGame2" [gameTitle]="'AFC Divisional Game 2'"></edit-playoff-game>
+    <edit-playoff-game [game]="games.nfcChampionshipGame" [gameTitle]="'NFC Championship Game'"></edit-playoff-game>
+    <edit-playoff-game [game]="games.afcChampionshipGame" [gameTitle]="'AFC Championship Game'"></edit-playoff-game>
+    <edit-playoff-game [game]="games.superBowlGame" [gameTitle]="'Super Bowl'"></edit-playoff-game>
+
+    <p-button [disabled]="savingGames" [ngClass]="{'is-disabled': savingGames}" label="Save" (onClick)="saveGames()"
+              [icon]="savingGames ? 'fa fa-spinner fa-spin' : ''" iconPos="right">
+    </p-button>
+
+</div>

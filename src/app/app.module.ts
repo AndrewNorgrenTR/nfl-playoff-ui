@@ -19,6 +19,8 @@ import {TableModule} from "primeng/table";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpClientModule} from "@angular/common/http";
 import {BracketGameComponent} from "./bracket/bracket-game.component";
+import {EditPlayoffGamesComponent} from "./admin/edit-playoff-games.component";
+import {EditPlayoffGameComponent} from "./admin/edit-playoff-game.component";
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import {BracketGameComponent} from "./bracket/bracket-game.component";
         LoginComponent,
         NewUserComponent,
         StandingsComponent,
-        BracketGameComponent
+        BracketGameComponent,
+        EditPlayoffGamesComponent,
+        EditPlayoffGameComponent
     ],
     imports: [
         AppRoutingModule,

@@ -30,4 +30,8 @@ export class PlayoffGameService {
             })
     }
 
+    savePlayoffGames(games: PlayoffGames): Promise<any> {
+      return Storage.put('playoffgames.json', JSON.stringify(games), {level: 'public', contentType: 'text/plain'});
+    }
+
 }
