@@ -1,0 +1,23 @@
+<span style="font-weight: bold">Tie Breaker Score</span>
+<div class="bracket-game" style="padding: 10px">
+    <div class="row">
+        <div class="col-6">
+            <span style="float: left">{{getTeam1()}}</span>
+        </div>
+        <div class="col-6">
+            <input id="team1Score" type="text" size="1" pInputText
+                   [disabled]="tieBreakerDisabled()"
+                   [(ngModel)]="picks.tieBreakerTeam1Score">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <span style="float: left">{{getTeam2()}}</span>
+        </div>
+        <div class="col-6">
+            <input id="team2Score" type="text" size="1" pInputText
+                   [disabled]="tieBreakerDisabled()"
+                   [(ngModel)]="picks.tieBreakerTeam2Score">
+        </div>
+    </div>
+</div>

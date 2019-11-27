@@ -21,6 +21,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {BracketGameComponent} from "./bracket/bracket-game.component";
 import {EditPlayoffGamesComponent} from "./admin/edit-playoff-games.component";
 import {EditPlayoffGameComponent} from "./admin/edit-playoff-game.component";
+import {TieBreakerComponent} from "./bracket/tie-breaker.component";
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import {EditPlayoffGameComponent} from "./admin/edit-playoff-game.component";
         StandingsComponent,
         BracketGameComponent,
         EditPlayoffGamesComponent,
-        EditPlayoffGameComponent
+        EditPlayoffGameComponent,
+        TieBreakerComponent
     ],
     imports: [
         AppRoutingModule,

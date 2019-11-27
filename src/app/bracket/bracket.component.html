@@ -33,7 +33,8 @@
 
             <tr>
                 <td id="nfcWildcardGame1Td">
-                    <bracket-game [game]="games.nfcWildcardGame1" [pick]="picks.nfcWildcard1Pick" [gameField]="'nfcWildcardGame1'"
+                    <bracket-game [game]="games.nfcWildcardGame1" [pick]="picks.nfcWildcard1Pick"
+                                  [gameField]="'nfcWildcardGame1'"
                                   (pickChanged)="updatePick($event, 'nfcWildcard1Pick')"></bracket-game>
                 </td>
                 <td>
@@ -43,28 +44,33 @@
                 </td>
                 <td class="bonus-pick">
                     <div>Bonus NFC Champion Pick</div>
-                    <p-dropdown [disabled]="pickDisabled(games.afcWildcardGame1)" [options]="nfcTeams" [(ngModel)]="picks.nfcChampionshipBonusPick"
+                    <p-dropdown [disabled]="pickDisabled(games.afcWildcardGame1)" [options]="nfcTeams"
+                                [(ngModel)]="picks.nfcChampionshipBonusPick"
                                 placeholder="Select a Team"></p-dropdown>
                 </td>
                 <td></td>
                 <td class="bonus-pick">
                     <div>Bonus SuperBowl Pick</div>
-                    <p-dropdown [disabled]="pickDisabled(games.afcWildcardGame1)" [options]="allTeams" [(ngModel)]="picks.superBowlBonusPick"
+                    <p-dropdown [disabled]="pickDisabled(games.afcWildcardGame1)" [options]="allTeams"
+                                [(ngModel)]="picks.superBowlBonusPick"
                                 placeholder="Select a Team"></p-dropdown>
                 </td>
                 <td></td>
                 <td class="bonus-pick">
                     <div>Bonus AFC Champion Pick</div>
-                    <p-dropdown [disabled]="pickDisabled(games.afcWildcardGame1)" [options]="afcTeams" [(ngModel)]="picks.afcChampionshipBonusPick"
+                    <p-dropdown [disabled]="pickDisabled(games.afcWildcardGame1)" [options]="afcTeams"
+                                [(ngModel)]="picks.afcChampionshipBonusPick"
                                 placeholder="Select a Team"></p-dropdown>
                 </td>
                 <td>
-                    <div style="width: 50%; position: relative; border-top: solid 1px; border-left: solid 1px; margin-left: 50%"
-                         [ngStyle]="{'height': getTableDataHeightInHalf('nfcWildcardGame1Td'), 'margin-top': getTableDataHeightInHalf('nfcWildcardGame1Td')}">
+                    <div
+                        style="width: 50%; position: relative; border-top: solid 1px; border-left: solid 1px; margin-left: 50%"
+                        [ngStyle]="{'height': getTableDataHeightInHalf('nfcWildcardGame1Td'), 'margin-top': getTableDataHeightInHalf('nfcWildcardGame1Td')}">
                     </div>
                 </td>
                 <td>
-                    <bracket-game [game]="games.afcWildcardGame1" [pick]="picks.afcWildcard1Pick" [gameField]="'afcWildcardGame1'"
+                    <bracket-game [game]="games.afcWildcardGame1" [pick]="picks.afcWildcard1Pick"
+                                  [gameField]="'afcWildcardGame1'"
                                   (pickChanged)="updatePick($event, 'afcWildcard1Pick')"></bracket-game>
                 </td>
             </tr>
@@ -72,7 +78,8 @@
             <tr>
                 <td></td>
                 <td>
-                    <bracket-game [game]="games.nfcDivisionalGame1" [pick]="picks.nfcDivisional1Pick" [gameField]="'nfcDivisionalGame1'"
+                    <bracket-game [game]="games.nfcDivisionalGame1" [pick]="picks.nfcDivisional1Pick"
+                                  [gameField]="'nfcDivisionalGame1'"
                                   (pickChanged)="updatePick($event, 'nfcDivisional1Pick')"></bracket-game>
                 </td>
                 <td id="nfcDivisionalGame1Td">
@@ -85,12 +92,14 @@
                 <td></td>
                 <td></td>
                 <td>
-                    <div style="width: 50%; position: relative; border-top: solid 1px; border-left: solid 1px; margin-left: 50%"
-                         [ngStyle]="{'height': getTableDataHeightInHalf('nfcDivisionalGame1Td'), 'margin-top': getTableDataHeightInHalf('nfcDivisionalGame1Td')}">
+                    <div
+                        style="width: 50%; position: relative; border-top: solid 1px; border-left: solid 1px; margin-left: 50%"
+                        [ngStyle]="{'height': getTableDataHeightInHalf('nfcDivisionalGame1Td'), 'margin-top': getTableDataHeightInHalf('nfcDivisionalGame1Td')}">
                     </div>
                 </td>
                 <td>
-                    <bracket-game [game]="games.afcDivisionalGame1" [pick]="picks.afcDivisional1Pick" [gameField]="'afcDivisionalGame1'"
+                    <bracket-game [game]="games.afcDivisionalGame1" [pick]="picks.afcDivisional1Pick"
+                                  [gameField]="'afcDivisionalGame1'"
                                   (pickChanged)="updatePick($event, 'afcDivisional1Pick')"></bracket-game>
                 </td>
                 <td></td>
@@ -100,7 +109,8 @@
                 <td></td>
                 <td></td>
                 <td id="middleRowTd">
-                    <bracket-game [game]="games.nfcChampionshipGame" [pick]="picks.nfcChampionshipPick" [gameField]="'nfcChampionshipGame'"
+                    <bracket-game [game]="games.nfcChampionshipGame" [pick]="picks.nfcChampionshipPick"
+                                  [gameField]="'nfcChampionshipGame'"
                                   (pickChanged)="updatePick($event, 'nfcChampionshipPick')"></bracket-game>
                 </td>
                 <td>
@@ -109,7 +119,8 @@
                     </div>
                 </td>
                 <td>
-                    <bracket-game [game]="games.superBowlGame" [pick]="picks.superBowlPick" [gameField]="'superBowlGame'"
+                    <bracket-game [game]="games.superBowlGame" [pick]="picks.superBowlPick"
+                                  [gameField]="'superBowlGame'"
                                   (pickChanged)="updatePick($event, 'superBowlPick')"></bracket-game>
                 </td>
                 <td>
@@ -118,7 +129,8 @@
                     </div>
                 </td>
                 <td>
-                    <bracket-game [game]="games.afcChampionshipGame" [pick]="picks.afcChampionshipPick" [gameField]="'afcChampionshipGame'"
+                    <bracket-game [game]="games.afcChampionshipGame" [pick]="picks.afcChampionshipPick"
+                                  [gameField]="'afcChampionshipGame'"
                                   (pickChanged)="updatePick($event, 'afcChampionshipPick')"></bracket-game>
                 </td>
                 <td></td>
@@ -128,7 +140,8 @@
             <tr>
                 <td></td>
                 <td>
-                    <bracket-game [game]="games.nfcDivisionalGame2" [pick]="picks.nfcDivisional2Pick" [gameField]="'nfcDivisionalGame2'"
+                    <bracket-game [game]="games.nfcDivisionalGame2" [pick]="picks.nfcDivisional2Pick"
+                                  [gameField]="'nfcDivisionalGame2'"
                                   (pickChanged)="updatePick($event, 'nfcDivisional2Pick')"></bracket-game>
                 </td>
                 <td id="nfcDivisionalGame2Td">
@@ -136,17 +149,21 @@
                          [ngStyle]="{'height': getTableDataHeightInHalf('nfcDivisionalGame2Td'), 'margin-bottom': getTableDataHeightInHalf('nfcDivisionalGame2Td')}">
                     </div>
                 </td>
-                <td></td>
                 <td>
+                </td>
+                <td>
+                    <tie-breaker [superBowlGame]="games.superBowlGame" [picks]="picks"></tie-breaker>
                 </td>
                 <td></td>
                 <td>
-                    <div style="width: 50%; position: relative; border-bottom: solid 1px; border-left: solid 1px; margin-left: 50%"
-                         [ngStyle]="{'height': getTableDataHeightInHalf('nfcDivisionalGame2Td'), 'margin-bottom': getTableDataHeightInHalf('nfcDivisionalGame2Td')}">
+                    <div
+                        style="width: 50%; position: relative; border-bottom: solid 1px; border-left: solid 1px; margin-left: 50%"
+                        [ngStyle]="{'height': getTableDataHeightInHalf('nfcDivisionalGame2Td'), 'margin-bottom': getTableDataHeightInHalf('nfcDivisionalGame2Td')}">
                     </div>
                 </td>
                 <td>
-                    <bracket-game [game]="games.afcDivisionalGame2" [pick]="picks.afcDivisional2Pick" [gameField]="'afcDivisionalGame2'"
+                    <bracket-game [game]="games.afcDivisionalGame2" [pick]="picks.afcDivisional2Pick"
+                                  [gameField]="'afcDivisionalGame2'"
                                   (pickChanged)="updatePick($event, 'afcDivisional2Pick')"></bracket-game>
                 </td>
                 <td></td>
@@ -154,7 +171,8 @@
 
             <tr>
                 <td>
-                    <bracket-game [game]="games.nfcWildcardGame2" [pick]="picks.nfcWildcard2Pick" [gameField]="'nfcWildcardGame2'"
+                    <bracket-game [game]="games.nfcWildcardGame2" [pick]="picks.nfcWildcard2Pick"
+                                  [gameField]="'nfcWildcardGame2'"
                                   (pickChanged)="updatePick($event, 'nfcWildcard2Pick')"></bracket-game>
                 </td>
                 <td id="nfcWildcardGame2Td">
@@ -165,19 +183,22 @@
                 <td></td>
                 <td></td>
                 <td>
-                    <p-button [disabled]="savingPicks" [ngClass]="{'is-disabled': savingPicks}" label="Save Picks" (onClick)="saveBracket()"
+                    <p-button [disabled]="savingPicks" [ngClass]="{'is-disabled': savingPicks}" label="Save Picks"
+                              (onClick)="saveBracket()"
                               [icon]="savingPicks ? 'fa fa-spinner fa-spin' : ''" iconPos="right">
                     </p-button>
                 </td>
                 <td></td>
                 <td></td>
                 <td>
-                    <div style="width: 50%; position: relative; border-bottom: solid 1px; border-left: solid 1px; margin-left: 50%"
-                         [ngStyle]="{'height': getTableDataHeightInHalf('nfcWildcardGame2Td'), 'margin-bottom': getTableDataHeightInHalf('nfcWildcardGame2Td')}">
+                    <div
+                        style="width: 50%; position: relative; border-bottom: solid 1px; border-left: solid 1px; margin-left: 50%"
+                        [ngStyle]="{'height': getTableDataHeightInHalf('nfcWildcardGame2Td'), 'margin-bottom': getTableDataHeightInHalf('nfcWildcardGame2Td')}">
                     </div>
                 </td>
                 <td>
-                    <bracket-game [game]="games.afcWildcardGame2" [pick]="picks.afcWildcard2Pick" [gameField]="'afcWildcardGame2'"
+                    <bracket-game [game]="games.afcWildcardGame2" [pick]="picks.afcWildcard2Pick"
+                                  [gameField]="'afcWildcardGame2'"
                                   (pickChanged)="updatePick($event, 'afcWildcard2Pick')"></bracket-game>
                 </td>
             </tr>

@@ -14,4 +14,7 @@ export class BracketPicks {
     nfcChampionshipBonusPick: string = "";
     afcChampionshipBonusPick: string = "";
     superBowlBonusPick: string = "";
+
+    tieBreakerTeam1Score: number = 0;
+    tieBreakerTeam2Score: number = 0;
 }
