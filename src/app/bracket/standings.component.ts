@@ -34,12 +34,21 @@ export class StandingsComponent implements OnInit {
 
                     this.bracketPicksService.getBracketPicksForUser(user)
                         .then(userPicks => {
+                            let component = this;
                             this.standings.push(new UserStanding(user.username, this.computeScore(userPicks, this.games), userPicks));
-                            this.standings.sort(function(a, b){return b.score-a.score});
+                            this.standings.sort(function (a, b) {
+                                return b.score - a.score || component.computeTieBreaker(a.picks, component.games) - component.computeTieBreaker(b.picks, component.games);
+                            });
 
                         });
                 }
             })
+    }
+
+    private computeTieBreaker(picks: BracketPicks, games: PlayoffGames): number {
+        let team1Diff = Math.abs(picks.tieBreakerTeam1Score - games.superBowlGame.team1Score);
+        let team2Diff = Math.abs(picks.tieBreakerTeam2Score - games.superBowlGame.team2Score);
+        return team1Diff + team2Diff;
     }
 
     private computeScore(picks: BracketPicks, games: PlayoffGames): number {
@@ -101,13 +110,11 @@ export class StandingsComponent implements OnInit {
     }
 
     getPickCssClass(game: PlayoffGame, pick: string): string {
-        if(!game.winner){
+        if (!game.winner) {
             return '';
-        }
-        else if(game.winner == pick){
+        } else if (game.winner == pick) {
             return 'standings-correct';
-        }
-        else{
+        } else {
             return 'standings-incorrect';
         }
     }
