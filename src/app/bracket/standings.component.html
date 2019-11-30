@@ -4,6 +4,7 @@
 
         <ng-template pTemplate="header">
             <tr>
+                <th>Rank</th>
                 <th>User</th>
                 <th>Score</th>
                 <th>Super Bowl Bonus</th>
@@ -27,8 +28,9 @@
             </tr>
         </ng-template>
 
-        <ng-template pTemplate="body" let-standing>
+        <ng-template pTemplate="body" let-i="rowIndex" let-standing>
             <tr>
+                <td>{{i + 1}}</td>
                 <td>{{standing.username}}</td>
                 <td>{{standing.score}}</td>
 
