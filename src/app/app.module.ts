@@ -22,11 +22,13 @@ import {BracketGameComponent} from "./bracket/bracket-game.component";
 import {EditPlayoffGamesComponent} from "./admin/edit-playoff-games.component";
 import {EditPlayoffGameComponent} from "./admin/edit-playoff-game.component";
 import {TieBreakerComponent} from "./bracket/tie-breaker.component";
+import {HeaderComponent} from "./header/header.component";
 
 
 @NgModule({
     declarations: [
         AppComponent,
+        HeaderComponent,
         BracketComponent,
         LoginComponent,
         NewUserComponent,

@@ -1,7 +1,6 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {BracketPicks} from "./bracket-picks";
 import {PlayoffGames} from "./playoff-games";
-import {AuthorizationService} from "../auth/authorization.service";
 import {Router} from "@angular/router";
 import {PlayoffGame} from "./playoff-game";
 import {SelectItem} from "primeng/api";
@@ -21,12 +20,7 @@ export class BracketComponent implements OnInit {
     afcTeams: SelectItem[];
     savingPicks: boolean = false;
 
-    constructor(public authorizationService: AuthorizationService, private router: Router, private playoffGameService: PlayoffGameService, private bracketPicksService: BracketPicksService) {
-    }
-
-    logOut() {
-        this.authorizationService.logout();
-        this.router.navigate(['/login']);
+    constructor(private router: Router, private playoffGameService: PlayoffGameService, private bracketPicksService: BracketPicksService) {
     }
 
     ngOnInit() {

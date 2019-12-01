@@ -1,10 +1,5 @@
 <div class="container-fluid" style="padding: 20px;">
 
-    <div class="row" style="margin-bottom: 20px">
-        <span style="margin-right: 10px">Hello {{authorizationService.getUserName()}}</span>
-        <p-button (click)="logOut()" label="Logout" *ngIf="authorizationService.isLoggedIn()"></p-button>
-    </div>
-
     <div class="row">
         <standings></standings>
     </div>
