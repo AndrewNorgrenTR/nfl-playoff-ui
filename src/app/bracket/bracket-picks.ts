@@ -1,8 +1,10 @@
 export class BracketPicks {
     nfcWildcard1Pick: string;
     nfcWildcard2Pick: string;
+    nfcWildcard3Pick: string;
     afcWildcard1Pick: string;
     afcWildcard2Pick: string;
+    afcWildcard3Pick: string;
     nfcDivisional1Pick: string;
     nfcDivisional2Pick: string;
     afcDivisional1Pick: string;

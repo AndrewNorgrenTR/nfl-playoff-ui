@@ -1,3 +1,14 @@
+# Set up
+amplify auth remove
+amplify storage remove
+amplify hosting remove
+delete the amplify directory
+amplify configure (if using new aws profile/account)
+amplify init
+amplify add auth
+amplify add hosting
+amplify add storage
+
 # FootballUi
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
