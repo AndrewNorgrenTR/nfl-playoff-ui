@@ -60,10 +60,16 @@ export class StandingsComponent implements OnInit {
         if (picks.afcWildcard2Pick && games.afcWildcardGame2.winner == picks.afcWildcard2Pick) {
             score = score + 1;
         }
+        if (picks.afcWildcard3Pick && games.afcWildcardGame3.winner == picks.afcWildcard3Pick) {
+            score = score + 1;
+        }
         if (picks.nfcWildcard1Pick && games.nfcWildcardGame1.winner == picks.nfcWildcard1Pick) {
             score = score + 1;
         }
         if (picks.nfcWildcard2Pick && games.nfcWildcardGame2.winner == picks.nfcWildcard2Pick) {
+            score = score + 1;
+        }
+        if (picks.nfcWildcard3Pick && games.nfcWildcardGame3.winner == picks.nfcWildcard3Pick) {
             score = score + 1;
         }
         if (picks.afcDivisional1Pick && games.afcDivisionalGame1.winner == picks.afcDivisional1Pick) {

@@ -101,8 +101,16 @@
             </tr>
 
             <tr>
-                <td></td>
-                <td></td>
+                <td id="nfcWildcardGame3td">
+                    <bracket-game [game]="games.nfcWildcardGame3" [pick]="picks.nfcWildcard3Pick"
+                                  [gameField]="'nfcWildcardGame3'"
+                                  (pickChanged)="updatePick($event, 'nfcWildcard3Pick')"></bracket-game>
+                </td>
+                <td>
+                    <div style="width: 50%; position: relative; border-top: solid 1px; border-right: solid 1px"
+                         [ngStyle]="{'height': getTableDataHeightInHalf('nfcWildcardGame3td'), 'margin-top': getTableDataHeightInHalf('nfcWildcardGame3td')}">
+                    </div>
+                </td>
                 <td id="middleRowTd">
                     <bracket-game [game]="games.nfcChampionshipGame" [pick]="picks.nfcChampionshipPick"
                                   [gameField]="'nfcChampionshipGame'"
@@ -128,8 +136,17 @@
                                   [gameField]="'afcChampionshipGame'"
                                   (pickChanged)="updatePick($event, 'afcChampionshipPick')"></bracket-game>
                 </td>
-                <td></td>
-                <td></td>
+                <td>
+                    <div
+                        style="width: 50%; position: relative; border-top: solid 1px; border-left: solid 1px; margin-left: 50%"
+                        [ngStyle]="{'height': getTableDataHeightInHalf('afcWildcardGame3td'), 'margin-top': getTableDataHeightInHalf('afcWildcardGame3td')}">
+                    </div>
+                </td>
+                <td id="afcWildcardGame3td">
+                    <bracket-game [game]="games.afcWildcardGame3" [pick]="picks.afcWildcard3Pick"
+                                  [gameField]="'afcWildcardGame3'"
+                                  (pickChanged)="updatePick($event, 'afcWildcard3Pick')"></bracket-game>
+                </td>
             </tr>
 
             <tr>
