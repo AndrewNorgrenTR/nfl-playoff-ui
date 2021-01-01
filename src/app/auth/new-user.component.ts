@@ -11,6 +11,7 @@ export class NewUserComponent {
     userName: string;
     password: string;
     email: string;
+    confirmUserName: string;
     verificationCode: string;
 
     constructor(public authorizationService: AuthorizationService, public router: Router) {
@@ -35,7 +36,7 @@ export class NewUserComponent {
     }
 
     confirmSignUp() {
-        Auth.confirmSignUp(this.userName, this.verificationCode)
+        Auth.confirmSignUp(this.confirmUserName, this.verificationCode)
             .then(response => {
                 alert("confirmed!");
                 this.router.navigate(['/login']);
