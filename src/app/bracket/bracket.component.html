@@ -39,21 +39,21 @@
                 </td>
                 <td class="bonus-pick">
                     <div>Bonus NFC Champion Pick</div>
-                    <p-dropdown [disabled]="pickDisabled(games.afcWildcardGame1)" [options]="nfcTeams"
+                    <p-dropdown [disabled]="pickDisabled(games.nfcWildcardGame1)" [options]="nfcTeams"
                                 [(ngModel)]="picks.nfcChampionshipBonusPick"
                                 placeholder="Select a Team"></p-dropdown>
                 </td>
                 <td></td>
                 <td class="bonus-pick">
                     <div>Bonus SuperBowl Pick</div>
-                    <p-dropdown [disabled]="pickDisabled(games.afcWildcardGame1)" [options]="allTeams"
+                    <p-dropdown [disabled]="pickDisabled(games.nfcWildcardGame1)" [options]="allTeams"
                                 [(ngModel)]="picks.superBowlBonusPick"
                                 placeholder="Select a Team"></p-dropdown>
                 </td>
                 <td></td>
                 <td class="bonus-pick">
                     <div>Bonus AFC Champion Pick</div>
-                    <p-dropdown [disabled]="pickDisabled(games.afcWildcardGame1)" [options]="afcTeams"
+                    <p-dropdown [disabled]="pickDisabled(games.nfcWildcardGame1)" [options]="afcTeams"
                                 [(ngModel)]="picks.afcChampionshipBonusPick"
                                 placeholder="Select a Team"></p-dropdown>
                 </td>

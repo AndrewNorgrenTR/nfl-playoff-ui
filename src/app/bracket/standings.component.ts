@@ -96,13 +96,13 @@ export class StandingsComponent implements OnInit {
 
         //Bonus picks
         if (picks.afcChampionshipBonusPick && games.afcChampionshipGame.winner == picks.afcChampionshipBonusPick) {
-            score = score + 2;
+            score = score + 1;
         }
         if (picks.nfcChampionshipBonusPick && games.nfcChampionshipGame.winner == picks.nfcChampionshipBonusPick) {
-            score = score + 2;
+            score = score + 1;
         }
         if (picks.superBowlBonusPick && games.superBowlGame.winner == picks.superBowlBonusPick) {
-            score = score + 3;
+            score = score + 2;
         }
 
         return score;

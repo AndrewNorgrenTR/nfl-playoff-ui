@@ -9,6 +9,9 @@ amplify add auth
 amplify add hosting
 amplify add storage
 
+# To deploy
+amplify publish
+
 # FootballUi
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.

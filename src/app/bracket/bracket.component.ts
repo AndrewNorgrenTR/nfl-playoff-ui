@@ -48,10 +48,14 @@ export class BracketComponent implements OnInit {
         this.allTeams.push(this.createLabelValue(this.games.afcWildcardGame1.team2));
         this.allTeams.push(this.createLabelValue(this.games.afcWildcardGame2.team1));
         this.allTeams.push(this.createLabelValue(this.games.afcWildcardGame2.team2));
+        this.allTeams.push(this.createLabelValue(this.games.afcWildcardGame3.team1));
+        this.allTeams.push(this.createLabelValue(this.games.afcWildcardGame3.team2));
         this.allTeams.push(this.createLabelValue(this.games.nfcWildcardGame1.team1));
         this.allTeams.push(this.createLabelValue(this.games.nfcWildcardGame1.team2));
         this.allTeams.push(this.createLabelValue(this.games.nfcWildcardGame2.team1));
         this.allTeams.push(this.createLabelValue(this.games.nfcWildcardGame2.team2));
+        this.allTeams.push(this.createLabelValue(this.games.nfcWildcardGame3.team1));
+        this.allTeams.push(this.createLabelValue(this.games.nfcWildcardGame3.team2));
 
         this.allTeams.push(this.createLabelValue(this.games.afcDivisionalGame1.team2));
         this.allTeams.push(this.createLabelValue(this.games.afcDivisionalGame2.team2));
@@ -62,6 +66,8 @@ export class BracketComponent implements OnInit {
         this.nfcTeams.push(this.createLabelValue(this.games.nfcWildcardGame1.team2));
         this.nfcTeams.push(this.createLabelValue(this.games.nfcWildcardGame2.team1));
         this.nfcTeams.push(this.createLabelValue(this.games.nfcWildcardGame2.team2));
+        this.nfcTeams.push(this.createLabelValue(this.games.nfcWildcardGame3.team1));
+        this.nfcTeams.push(this.createLabelValue(this.games.nfcWildcardGame3.team2));
         this.nfcTeams.push(this.createLabelValue(this.games.nfcDivisionalGame1.team2));
         this.nfcTeams.push(this.createLabelValue(this.games.nfcDivisionalGame2.team2));
 
@@ -69,6 +75,8 @@ export class BracketComponent implements OnInit {
         this.afcTeams.push(this.createLabelValue(this.games.afcWildcardGame1.team2));
         this.afcTeams.push(this.createLabelValue(this.games.afcWildcardGame2.team1));
         this.afcTeams.push(this.createLabelValue(this.games.afcWildcardGame2.team2));
+        this.afcTeams.push(this.createLabelValue(this.games.afcWildcardGame3.team1));
+        this.afcTeams.push(this.createLabelValue(this.games.afcWildcardGame3.team2));
         this.afcTeams.push(this.createLabelValue(this.games.afcDivisionalGame1.team2));
         this.afcTeams.push(this.createLabelValue(this.games.afcDivisionalGame2.team2));
     }
