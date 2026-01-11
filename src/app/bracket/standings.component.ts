@@ -115,6 +115,25 @@ export class StandingsComponent implements OnInit {
         return currentDate > gameDate;
     }
 
+    showBonusPick(): boolean {
+        // get all afc and nfc wildcard games and find earliest date
+        if (!this.games) {
+            return false;
+        }
+        const gameOnes = [
+            this.games.afcWildcardGame1,
+            this.games.afcWildcardGame2,
+            this.games.afcWildcardGame3,
+            this.games.nfcWildcardGame1,
+            this.games.nfcWildcardGame1,
+            this.games.nfcWildcardGame2,
+            this.games.nfcWildcardGame3
+        ];
+        const dates = gameOnes.map(game => new Date(game.time));
+        const earliestDate = new Date(Math.min.apply(null, dates as Date[]));
+        return new Date() > earliestDate;
+    }
+
     getPickCssClass(game: PlayoffGame, pick: string): string {
         if (!game.winner) {
             return '';

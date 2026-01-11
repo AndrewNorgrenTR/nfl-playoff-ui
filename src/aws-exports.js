@@ -10,7 +10,7 @@ const awsmobile = {
     "oauth": {},
     "aws_content_delivery_bucket": "nflplayoffui-20201230131151-hostingbucket-dev",
     "aws_content_delivery_bucket_region": "us-east-1",
-    "aws_content_delivery_url": "http://footballui-20181229105141-hostingbucket.s3-website-us-east-1.amazonaws.com",
+    "aws_content_delivery_url": "http://nflplayoffui-20201230131151-hostingbucket-dev.s3-website-us-east-1.amazonaws.com",
     "aws_user_files_s3_bucket": "nflplayoffuif60c1d934e0a46e8a321debb5ee95287130734-dev",
     "aws_user_files_s3_bucket_region": "us-east-1"
 };

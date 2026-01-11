@@ -34,11 +34,11 @@
             <tr>
                 <td>{{i + 1}}</td>
                 <td>{{standing.username}}</td>
-                <td>{{standing.score}}</td>
+                <td style="font-weight: bold;">{{standing.score}}</td>
 
-                <td class="{{getPickCssClass(games.superBowlGame, standing.picks.superBowlBonusPick)}}">{{showPick(games.afcWildcardGame1) ? standing.picks.superBowlBonusPick : ''}}</td>
-                <td class="{{getPickCssClass(games.afcChampionshipGame, standing.picks.afcChampionshipBonusPick)}}">{{showPick(games.afcWildcardGame1) ? standing.picks.afcChampionshipBonusPick : ''}}</td>
-                <td class="{{getPickCssClass(games.nfcChampionshipGame, standing.picks.nfcChampionshipBonusPick)}}">{{showPick(games.afcWildcardGame1) ? standing.picks.nfcChampionshipBonusPick : ''}}</td>
+                <td class="{{getPickCssClass(games.superBowlGame, standing.picks.superBowlBonusPick)}}">{{showBonusPick() ? standing.picks.superBowlBonusPick : ''}}</td>
+                <td class="{{getPickCssClass(games.afcChampionshipGame, standing.picks.afcChampionshipBonusPick)}}">{{showBonusPick() ? standing.picks.afcChampionshipBonusPick : ''}}</td>
+                <td class="{{getPickCssClass(games.nfcChampionshipGame, standing.picks.nfcChampionshipBonusPick)}}">{{showBonusPick() ? standing.picks.nfcChampionshipBonusPick : ''}}</td>
 
                 <td class="{{getPickCssClass(games.afcWildcardGame1, standing.picks.afcWildcard1Pick)}}">{{showPick(games.afcWildcardGame1) ? standing.picks.afcWildcard1Pick : ''}}</td>
                 <td class="{{getPickCssClass(games.nfcWildcardGame1, standing.picks.nfcWildcard1Pick)}}">{{showPick(games.nfcWildcardGame1) ? standing.picks.nfcWildcard1Pick : ''}}</td>
