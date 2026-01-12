@@ -10,7 +10,7 @@ export class UserService {
 
     getAllUsers(): Promise<[User]> {
 
-        return Storage.get("users.json", {download: true})
+        return Storage.get("users_v2.json", {download: true})
             .then(result => {
                 const text = new TextDecoder('utf-8').decode((result as any).Body);
                 console.log(text);
@@ -34,7 +34,7 @@ export class UserService {
                 var existingUser = users.find(x => x.username == user.username);
                 if (!existingUser) {
                     users.push(user);
-                    Storage.put('users.json', JSON.stringify(users), {contentType: 'text/plain'})
+                    Storage.put('users_v2.json', JSON.stringify(users), {contentType: 'text/plain'})
                         .then(result => console.log("Updated Users."))
                         .catch(err => alert("Failed to update users: " + err));
                 }
