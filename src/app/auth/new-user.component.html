@@ -28,7 +28,7 @@
                [(ngModel)]="email">
         <label for="email">Email</label>
     </span>
-        <p-button style="margin-right: 20px" [disabled]="!signUpForm.form.valid" (click)="signUp()" label="Sign Up"
+        <p-button [style]="{'margin-right': '20px'}" [disabled]="!signUpForm.form.valid" (click)="signUp()" label="Sign Up"
                   *ngIf="!authorizationService.isLoggedIn()"></p-button>
     </form>
 </div>
